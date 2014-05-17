@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
   //res.render('index', { title: 'Express' });
-  res.sendfile('views/drag.html');
+  res.sendfile('views/index.html');
 });
 
 router.get('/simple_form',function(req,res) {
