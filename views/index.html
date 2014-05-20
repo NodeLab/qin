@@ -129,3 +129,16 @@ _gaq.push(['_trackPageview', 'mybooking_ad_promotion_pv']);
 		</div>
 </section>
 <!--内容 end-->
+<script src='javascripts/jquery.min.js'></script>
+<script>
+	console.log('go');
+	
+	$.ajax({
+        url:'http://event.dianping.com/taiwanunion/brand/data.js',
+        dataType: 'JSONP',
+        jsonpCallback: 'deal',
+        success: function(response){
+        	console.log(response);
+        }
+    });
+</script>
