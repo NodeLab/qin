@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="email=no" />
+<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=4)"> 
+<meta name="apple-mobile-web-app-title" content="大众点评">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script src='js/underscore.js'></script>
+<script src='data.js'></script>
+<script src='js/zepto.js'></script>
+<script type='text/template' id='template'>
+<%if( window.type == '0'){%>
+
+      <section class="meijia-banner title-banner ">
+    </section>
+    <%}%>
+    <%if( window.type == '1'){%>
+        <section class="hair-banner title-banner ">
+        </section>
+    <%}%>
+    <%if( window.type == '2'){%>
+        <section class="bea-banner title-banner ">
+        </section>
+    <%}%>
+    <%if( window.type == '3'){%>
+        <section class="mishi-banner title-banner ">
+        </section>
+    <%}%>
+    <%if( window.type == '4'){%>
+        <section class="worldcup-banner title-banner ">
+        </section>
+    <%}%>
+
+    <%if(window.banner){%>
+      <section class='active-banner'>
+      <img src="img/banner.jpg" alt="" class="banner-img">  
+      </section>
+    <%}%>
+  <section class="active-content">
+  <ul class='main-ul'>
+  <%_.each(window.storeList,function(e){%>
+        <li>
+        <div class="coursel">
+          <div class="coursel-main">
+            <%_.each(e.imgs,function(img){%>
+              <img class="shop-pic" src="<%=img%>" alt="">  
+            <%})%>
+          </div>
+        </div>
+        <p class='shop-name'><%=e.name%></p>
+            <ul class="button-ul">
+                <li class='
+                <%if(e.promotion.length < 10){%>
+                  buttons-dis
+                <%} else {%>
+                  buttons-<%=window.type%>
+                <%}%>
+                 promotions'><a href="<%=e.promotion%>" target="_blank"></a></li>
+                 <li class=' 
+                <%if(e.coupon.length < 10){%>
+                  buttons-dis
+                <%} else {%>
+                  buttons-<%=window.type%>
+                <%}%>
+                 group'><a href='<%=e.coupon%>' target="_blank"></a></li>
+                <li class=' 
+                <%if(e.link.length < 10){%>
+                  buttons-dis
+                <%} else {%>
+                  buttons-<%=window.type%>
+                <%}%>
+                coupon' ><a href="<%=e.link%>" target="_blank"></a></li>
+            </ul>
+        </li>
+    <%})%>
+  </ul>
+  </section>
+</script>
+<title>狂欢世界杯 边吃喝边看球</title>
+<meta name="Keywords" content=""/>
+<meta name="Description" content=""/>
+<script>var G_rtop=+new Date,_gaq=[
+['_setAccount','MO-16496742-1'],
+['_addOrganic','soso','w'],
+['_addOrganic','sogou','query'],
+['_addOrganic','yodao','q'],
+['_addOrganic','bing','q'],
+['_addOrganic','360','q'],
+['_addOrganic','gougou','search'],
+['_addOrganic','baidu','word'],
+['_addOrganic','sogou','keyword'],
+['_addOrganic','so','q'],
+['_setDomainName', '.m.dianping.com'],
+['_setAllowHash', false],
+['_setCustomConst', 'referrequestid', ''],
+['_setCustomConst', 'reqid', '0a016c63-14618edc123-2bf4dc']
+];
+_gaq.push(['_trackPageview']);
+var _hip = [
+['_setPageId', 0],
+];
+</script>
+</head>
+<body>
+    
+    
+    
+    <div class="template-render">
+        <section class="active-content">
+<!--       <ul class="main-ul">
+        <li>
+        <div class="coursel">
+          <div class="coursel-main">
+            <img class="shop-pic" src="img/1.jpg" alt="">  
+            <img class="shop-pic" src="img/1.jpg" alt="">    
+            <img class="shop-pic" src="img/1.jpg" alt="">    
+          </div>
+        </div>
+        <p class="shop-name">MeliaTokyo魅力东京造型</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li>
+    
+        <li>
+        <div class="coursel">
+          <div class="coursel-main">
+            <img class="shop-pic" src="img/1.jpg" alt="">  
+            <img class="shop-pic" src="img/1.jpg" alt="">    
+          </div>
+        </div>
+        <p class="shop-name">香格俪莱(时代店)</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li>
+    
+        <li>
+        <img class="shop-pic" src="img/3.jpg" alt="">
+        <p class="shop-name">小左美发(武宁路店)</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li>
+    
+        <li>
+        <img class="shop-pic" src="img/4.jpg" alt="">
+        <p class="shop-name">MeliaTokyo魅力东京造型</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li>
+    
+        <li>
+        <img class="shop-pic" src="img/5.jpg" alt="">
+        <p class="shop-name">xy hair salon(人民广场店）</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li>
+    
+        <li>
+        <img class="shop-pic" src="img/6.jpg" alt="">
+        <p class="shop-name">MeliaTokyo魅力东京造型</p>
+            <ul class="button-ul">
+                <li class=" buttons-3 promotions"><a href="http://www.dianping.com/promo/214182?source=1" target="_blank"></a></li>
+                <li class=" buttons-3 coupon"><a href="dianping://tuandeal?id=2171608" target="_blank"></a></li>
+                <li class=" buttons-3 group"><a href="dianping://shopinfo?id=6057548" target="_blank"></a></li>
+            </ul>
+        </li> -->
+  <ul class="main-ul">
+  </ul>
+    </section>      
+
+    </div>
+
+</body>
+<script>
+(function ($) {
+  $.fn.slideDown = function (duration) {    
+    // get old position to restore it then
+    var position = this.css('position');
+
+    // show element if it is hidden (it is needed if display is none)
+    this.show();
+
+    // place it so it displays as usually but hidden
+    this.css({
+      position: 'absolute',
+      visibility: 'hidden'
+    });
+
+    // get naturally height
+    var height = this.height();
+
+    // set initial css for animation
+    this.css({
+      position: position,
+      visibility: 'visible',
+      overflow: 'hiden',
+      height:height
+    });
+
+    // animate to gotten height
+    this.animate({
+      height: height
+    }, duration);
+  };
+})(Zepto);
+
+    $('.role-intro-back').click(function(){
+        $('.role-intro').hide()
+    })
+    $('.role-link').click(function(){
+        $('.role-intro').show()
+    })
+</script>
+<script>
+    _id = 196;
+
+$(document).ready(function(){
+  out =_.template($('#template').html(),window.storeList)
+  // console.log(window.stroeList);
+    $('.template-render').html(out)
+  setInterval(function(){$('.coursel-main').trigger('coursel')},4000);
+    //$('.coursel-main').css('left','-440px')
+    $('.coursel-main').bind('coursel',function(event){
+      var img_length = $(this).find('img').length -1 ;
+      var sym = $(this).css('left')
+      if ((-1)*img_length * 145 + 'px' == sym){
+        $(this).css('left','0px')
+      } else {
+        $(this).css('left', $(this).position().left - 145 + 'px')
+      }
+    })
+})
+
+
+</script>
+</html>
+

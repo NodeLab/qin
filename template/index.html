@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>世界杯模板填单工具</title>
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+	.main{width: 600px; margin: 0 auto;}
+	input:invalid{border-color: #B94A48;}
+	.input-group, .panel{margin-top: 15px;}
+	.pic{float: left; width: 100px; margin-left: 10px; }
+	#drop{padding: 50px 0;text-align: center; width: 200px; border: 3px dashed #008000; border-radius: 5px;}
+	#img-name-list{min-height: 100px; width: 250px;margin-left: 10px;}
+	.hold-pic{padding:10px;width:105px;margin-left: 25px;}
+	#item-img-btn{padding:10px; margin-top: 10px;}
+	#frame{width: 100%;  border: 0; margin-top: 20px; height: 800px;}
+   </style>
+</head>
+<body>
+
+<div class="panel panel-default main">
+	<div class="panel-heading">
+		天天中奖模板填单工具
+	</div>
+	<div class="panel-body">
+        <form class="bs-example bs-example-form" role="form">
+			<div class="input-group">
+				<span class="input-group-addon">项目名</span>
+				<input id="project-name" type="text" class="form-control" placeholder="项目名" pattern="^[0-9a-zA-Z-]+$" title="由字母数字中划线组成">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">活动ID</span>
+				<input id="group-id" type="text" class="form-control" placeholder="抽奖活动的ID" pattern="^\d+$" title="只能是数字">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">城市拼音</span>
+				<input id="city-name" type="text" class="form-control" placeholder="活动城市的拼音，用于GA" pattern="^[a-z]+$" title="只能是拼音字母">
+			</div>
+		  
+		</form>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					添加商户
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="input-group">
+					<span class="input-group-addon">商户名称</span>
+					<input id="item-name" type="text" class="form-control" placeholder="为保证可见性建议不超过10个汉字" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">商户链接</span>
+					<input id="item-link" type="text" class="form-control" placeholder="商户链接" >
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							商户图片
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="input-group pic" style="margin-left: 10px;">
+							<span class="input-group-addon">宽</span>
+							<input id="item-width" type="text" class="form-control"  >
+						</div>
+						<div class="input-group pic" >
+							<span class="input-group-addon">高</span>
+							<input id="item-height" type="text" class="form-control"  >
+						</div>
+						<div class="checkbox pic hold-pic">
+							<label>
+								<input id="item-force" type="checkbox"> 保持图片比例
+							</label>
+					   </div>
+					   <form  id="hidden-form" style="display:none;">
+						<input id="item-img" type="file">
+					   </form>
+					   <button  id="item-img-btn" type="button" class="btn btn-success pic">选择图片</button>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							轮播图片
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="input-group pic" >
+							<span class="input-group-addon">宽</span>
+							<input id="width" type="text" class="form-control"  >
+						</div>
+						<div class="input-group pic" >
+							<span class="input-group-addon">高</span>
+							<input id="height" type="text" class="form-control"  >
+						</div>
+						<div class="checkbox pic hold-pic" >
+							<label>
+								<input id="force" type="checkbox"> 保持图片比例
+							</label>
+					   </div>
+					   <div style="clear: both;"></div>
+					   <div style="margin: 10px 0 10px 10px;">
+						<div id="drop"  class="pic">把图片拖到这里</div>
+						<div  id="img-name-list" class="pic">
+							<ul class="list-group">
+							</ul>
+						</div>
+						<div style="clear: both;"></div>
+					   </div>
+						
+						
+					</div>
+				</div>
+				<button id="add" type="button" class="btn btn-success">添加商户</button>
+				<div class="input-group">
+					<span class="input-group-addon">简短介绍</span>
+					<input id="item-introduction" type="text" class="form-control" placeholder="建议不超过80字" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">详细介绍</span>
+					<input id="item-more" type="text" class="form-control" placeholder="没有留空即可" >
+				</div>
+				
+				<div class="input-group">
+					<span class="input-group-addon">团购链接</span>
+					<input id="item-coupon" type="text" class="form-control" placeholder="没有留空即可" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">预订链接</span>
+					<input id="item-booking" type="text" class="form-control" placeholder="没有留空即可" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">优惠券链接</span>
+					<input id="item-promotion" type="text" class="form-control" placeholder="没有留空即可" >
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">会员卡链接</span>
+					<input id="item-member" type="text" class="form-control" placeholder="没有留空即可" >
+				</div>
+				
+			</div>
+			
+		</div>
+		<button id="publish" type="button" class="btn btn-success">预览</button>
+		<button id="push" type="button" class="btn btn-success">上线</button>
+		
+   </div>
+</div>
+<iframe id="frame"></iframe>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+<script>
+jQuery( function($) {
+    var groupId, city, 
+		uploadFile = {
+			file: []
+		},
+		items = [];
+	
+	function upload (files, option, cb) {
+		var i = 0,
+			fd = new FormData(),
+			xhr = new XMLHttpRequest();
+
+		for (; i < files.length; i++) {
+			fd.append("file" + i, files[i]);
+		}
+		
+		fd.append("w", option.w);
+		fd.append("h", option.h);
+		fd.append("name", option.name);
+		fd.append("force", option.force);
+
+		xhr.addEventListener("load", function (e, data) {cb.call(null, JSON.parse(e.target.responseText))}, false);
+		xhr.addEventListener("error",  function (e) {window.console && console.log(e)}, false);
+		xhr.addEventListener("abort",  function (e) {window.console && console.log(e)}, false);
+		xhr.open("POST", "/uploadpic");
+		xhr.send(fd);
+	} 
+	
+	$('#item-img-btn').click( function (e) {
+		var w = $('#item-width').val(),
+			h = $('#item-height').val();
+			
+		if (!/^[1-9]\d*/.test(w) || !/^[1-9]\d*/.test(h)) {
+			e.preventDefault();
+			alert('请填写商户图片的宽高');
+		} else {
+			$('#item-img').click();
+		}
+	});
+	
+	$('#item-img').on('change', function (e) {
+		var w = $('#item-width').val(),
+			h = $('#item-height').val();
+			
+		$('#item-img').attr('upload', w + '-' + h);
+	});
+
+    $('#add').on('click', function (e) {
+		var item,
+			length = items.length,
+			projectName = $('#project-name').val();
+
+		if (!/^[0-9a-zA-Z-]+$/.test(projectName)) {
+			alert('项目名由数字字母中划线组成');
+			return;
+		}
+		
+		groupId = $('#group-id').val() || 0;
+		if (groupId && !/^\d+$/.test(groupId)) {
+			alert('活动ID必须是数字');
+			return;
+		}
+		
+		city = $('#city-name').val();
+		if (city && !/^[a-z]+$/.test(city)) {
+			alert('活动城市由小写字母组成');
+			return;
+		}		
+		
+		item = {
+			name : $('#item-name').val(),
+			link : $('#item-link').val(),
+			introduction : $('#item-introduction').val(),
+			more : $('#item-more').val(),
+			promotion : $('#item-promotion').val(),
+			coupon : $('#item-coupon').val(),
+			booking : $('#item-booking').val(),
+			member : $('#item-member').val()
+		};
+
+		//upload img
+		( function () {//上床商户图片
+			var dim,
+				commercial = $('#item-img'),
+				up = commercial.attr('upload');
+			if (up && up.indexOf('-') != -1) {
+				dim = up.split('-');
+				upload(commercial[0].files, {
+					w: dim[0],
+					h: dim[1],
+					name: projectName,
+					force: $('#item-force').prop('checked') ? 0 : 1
+				}, function (res) {
+					if (res.result) {
+						item.img = 'http://picads.com:9100/images/' + res.data[0];
+					} else {
+						alert(res.error)
+					}
+				});
+			}
+		})();
+		
+		//upload imgs
+		( function () {
+
+			upload(uploadFile.file, {
+				w: uploadFile.w,
+				h: uploadFile.h,
+				name: projectName,
+				force: $('#force').prop('checked') ? 0 : 1
+			}, function (res) {
+				if (res.result) {
+					if (res.data && res.data.length == uploadFile.file.length) {
+						item.imgs = res.data;
+						items.push(item);
+						$('#item-name, #item-link, #item-introduction, #item-more, ' +
+						'#item-promotion, #item-coupon, #item-booking, #item-member').val('');
+						$('#hidden-form').trigger('reset');
+						$('#img-name-list ul').html('');
+						uploadFile.file = [];
+					}
+				} else {
+					alert(res.error);
+				}
+			});
+		})();
+    });
+	
+	$('#publish').click( function (e) {
+		e.preventDefault();
+		
+		var projectName = $('#project-name').val();
+			
+		if (!/^[0-9a-zA-Z-]+$/.test(projectName)) {
+			alert('项目名由数字字母中划线组成');
+			return;
+		}
+		$.ajax({
+			type: 'POST',
+			url: 'publish',
+			data: {name: projectName, data: JSON.stringify(items)}
+		}).done( function (res) {
+			var offset;
+			if (res.result) {
+				offset = $('#frame').offset();
+				$('#frame').attr('src', 'http://picads.com:9100/project/' + projectName + '/');
+				window.scrollTo(0, parseInt(offset.top, 10));
+			} else {
+				alert(res.error);
+			}	
+		});
+	});
+	
+	$('#push').click( function (e) {
+		e.preventDefault();
+		
+		var projectName = $('#project-name').val();
+			
+		if (!/^[0-9a-zA-Z-]+$/.test(projectName)) {
+			alert('项目名由数字字母中划线组成');
+			return;
+		}
+		$.ajax({
+			type: 'GET',
+			url: 'push?name=' + projectName
+		}).done( function (res) {
+			if (res.result) {
+			
+			} else {
+				alert(res.error);
+			}	
+		});
+	});
+
+
+
+	/*
+    setInterval(function(){
+      var text = [
+        'pageTracker._trackPageview("events/market/ttzj/' + $('#city-name').val() + '");\n\n',
+        'window.GROUP_ID = ' + ($('#group-id').val() || 0) + ';\n\n',
+        'window.storeList = ' + JSON.stringify(items),
+		';'
+      ].join('');
+
+      $('#text-area').val(text);
+    }, 1000);
+	*/
+
+	
+	
+	
+	( function () {
+		var drop = $('#drop');
+		
+		if (!'ondrop' in drop[0] || ! 'FileReader ' in window || ! 'FormData' in  window) {
+			alert('请用最新的浏览器');
+			return;
+		}
+
+		$('#drop').on('dragover', function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+		});
+		
+		drop[0].addEventListener('drop', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			var i, w, h, file, reader,
+				html = '',
+				files = e.dataTransfer.files ;
+				
+			w = $('#width').val();
+			h = $('#height').val();
+			
+			if (! /^[1-9]\d*/.test(w) || !/^[1-9]\d*/.test(h)) {
+				alert('请填写轮播图片的宽高');
+				return;
+			}
+			
+			uploadFile.w = w;
+			uploadFile.h = h;
+
+			
+			for (i = 0; i < files.length; i++) {
+				file = files[i];
+				if (file.type.indexOf ('image') === -1) {
+				} else {
+					uploadFile.file.push(file)
+				}
+			}
+			for (i = 0; i < uploadFile.file.length; i++) {
+				file = uploadFile.file[i];
+				html += '<li class="list-group-item">' + file.name + '</li>';
+			}
+			$('#img-name-list ul').html(html);
+			html = '';
+		}, false);
+
+	})();
+	
+	$(document).on('dragover', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	});
+	document.addEventListener('drop', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+	});
+	$(window).on('beforeunload', function (e) {
+		e.preventDefault();
+	})
+});
+  
+
+</script>
+
+</body>
+</html>
