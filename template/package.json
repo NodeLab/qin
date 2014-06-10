@@ -1,0 +1,15 @@
+{
+  "name": "tt",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "tar.gz": "*",
+    "jsftp": "*",
+    "fs-extra": "*"
+  }
+}
