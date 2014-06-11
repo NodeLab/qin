@@ -15,7 +15,10 @@
     "morgan": "~1.0.0",
     "multer": "0.0.5",
     "static-favicon": "~1.0.0",
-    "stylus": "0.42.3"
+    "stylus": "0.42.3",
+    "tar.gz": "*",
+    "jsftp": "*",
+    "fs-extra": "*"
   },
   "devDependencies": {
     "grunt": "^0.4.4"
