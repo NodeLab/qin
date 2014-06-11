@@ -1,42 +1,25 @@
-M - E - N
+A - I - R
 =========
 
-This is a simple demo using mongodb , express , node.js
+	This is a simple platform using mongodb , express , node.js . 
+	
+	这是一个非常简洁的开发平台，主要用于进行推广活动开发。
 
-*save custom user inof by simple form 
-
-file tree
+组件 component
 ---------
-.
-├── bin
-├── controllers
-├── node_modules
-│   ├── body-parser
-│   ├── cookie-parser
-│   ├── debug
-│   ├── express
-│   ├── grunt
-│   ├── jade
-│   ├── mongodb
-│   ├── morgan
-│   ├── static-favicon
-│   └── stylus
-├── proxy
-├── public
-│   ├── images
-│   ├── javascripts
-│   └── stylesheets
-├── routes
-├── uploads
-├── utils
-└── views
+	*中奖名单 prize-list
+	*九宫格 	grid
+	老虎机
+	*图片轮播 carousel
+
+构建 
+----
+	gulp.js 批量压缩图片
+	template 信息录入
+
+部署
+----
+	ftp 自动上线
 
 
-22 directories
-
-model 
------
-user
-guest
-form
-event
+	
