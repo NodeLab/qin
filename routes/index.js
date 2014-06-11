@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var controller = require('../controllers/index')
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -14,5 +15,9 @@ router.get('/simple_form',function(req,res) {
 router.post('/uploader',function(req,res) {
 	console.log(req.files);
 })
+
+router.get('/prize/ajax/prizeDraw',controller.prize)
+
+router.get('/ajax/json/account/info',controller.account)
 
 module.exports = router;

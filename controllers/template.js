@@ -11,7 +11,7 @@ var ftp,
 	JSFtp = require("jsftp");
 
 exports.index = function (req, res){
-  res.sendfile('template.html');
+  res.sendfile('views/template.html');
 };
 
 exports.push = function (req, res){
