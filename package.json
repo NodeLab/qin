@@ -21,6 +21,8 @@
     "fs-extra": "*"
   },
   "devDependencies": {
-    "grunt": "^0.4.4"
+    "grunt": "^0.4.4",
+    "gulp":"*",
+    "gulp-gm":"0.0.3"
   }
 }
