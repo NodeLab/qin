@@ -13,7 +13,6 @@ router.get('/simple_form',function(req,res) {
 
 router.post('/uploader',function(req,res) {
 	console.log(req.files);
-	
 })
 
 module.exports = router;
