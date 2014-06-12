@@ -20,4 +20,6 @@ router.get('/prize/ajax/prizeDraw',controller.prize)
 
 router.get('/ajax/json/account/info',controller.account)
 
+router.get('/prize/ajax/recordList',controller.recordList)
+
 module.exports = router;
