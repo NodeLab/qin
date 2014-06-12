@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gm = require('gulp-gm');
+var xls2json = require('gulp-xls2json');
 
 gulp.task('hello', function(){
 	console.log('Hello World')
@@ -22,4 +23,10 @@ gulp.task('logo',function(){
 		}))
 		.pipe(gulp.dest('/Users/elr-mbp/Desktop/temp/'))
 	return 
+})
+
+gulp.task('parse_xls',function(){
+	gulp.src('/Users/elr-mbp/Desktop/test.xls')
+		.pipe(xls2json())
+		.pipe(gulp.dest('/Users/elr-mbp/Desktop/temp/'));
 })
