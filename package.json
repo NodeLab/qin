@@ -23,6 +23,7 @@
   "devDependencies": {
     "grunt": "^0.4.4",
     "gulp":"*",
-    "gulp-gm":"0.0.3"
+    "gulp-gm":"0.0.3",
+    "gulp-xls2json":"0.1.2"
   }
 }
