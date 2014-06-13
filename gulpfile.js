@@ -17,11 +17,11 @@ gulp.task('resize',function() {
 })
 
 gulp.task('logo',function(){
-	gulp.src("/Users/elr-mbp/Desktop/北京-天天中奖餐饮/*/logo.{jpg,jpeg,JPG}")
+	gulp.src("/Users/elr-mbp/Desktop/grid/*.{jpg,jpeg,JPG,png}")
 		.pipe(gm(function(gmfile){
 			return gmfile.resize(180,180,"!").setFormat('jpg');
 		}))
-		.pipe(gulp.dest('/Users/elr-mbp/Desktop/temp/'))
+		.pipe(gulp.dest('/Users/elr-mbp/Desktop/grid-p/'))
 	return 
 })
 
