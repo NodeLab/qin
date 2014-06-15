@@ -1,5 +1,6 @@
 A - I - R
 =========
+[![Build Status](https://travis-ci.org/elrrrrrrr/air.svg?branch=master)](https://travis-ci.org/elrrrrrrr/air)
 
 	This is a simple platform using mongodb , express , node.js . 
 	
