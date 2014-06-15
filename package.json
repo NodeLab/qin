@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "hotnode ./bin/www",
-    "test": "jest"
+    "test": "echo ok & exit 1"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
