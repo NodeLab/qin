@@ -1,6 +1,6 @@
 
 {
-  "name": "air",
+  "name": "elr",
   "version": "0.0.2",
   "private": false,
   "description":"init the tool",
@@ -10,7 +10,7 @@
   "license":"MIT",
   "scripts": {
     "start": "hotnode ./bin/www",
-    "test": "npm start"
+    "test": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -31,6 +31,7 @@
     "grunt": "^0.4.4",
     "gulp":"*",
     "gulp-gm":"0.0.3",
-    "gulp-xls2json":"0.1.2"
+    "gulp-xls2json":"0.1.2",
+    "hotnode":"0.0.8"
   }
 }
