@@ -1,0 +1,284 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.6
+3 info using node@v0.10.26
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/elr-mbp/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+13 verbose folder .
+14 info prepublish elr@0.0.2
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/elr-mbp/.npm/1f1177db-tar.lock
+17 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+18 verbose lock tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz /Users/elr-mbp/.npm/1d498d27-19161-0-8032548436895013-tmp-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+22 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+23 verbose tar unpack /var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+24 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+25 verbose lock tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package /Users/elr-mbp/.npm/a9280eaa-19161-0-8032548436895013-package.lock
+26 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+27 verbose lock tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz /Users/elr-mbp/.npm/1d498d27-19161-0-8032548436895013-tmp-tgz.lock
+28 silly gunzTarPerm modes [ '755', '644' ]
+29 silly gunzTarPerm extractEntry package.json
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm extractEntry README.md
+32 silly gunzTarPerm extractEntry Gruntfile.js
+33 silly gunzTarPerm extractEntry app.js
+34 silly gunzTarPerm extractEntry config.js
+35 silly gunzTarPerm extractEntry gulpfile.js
+36 silly gunzTarPerm extractEntry __tests__/simple.js
+37 silly gunzTarPerm extractEntry bower.json
+38 silly gunzTarPerm extractEntry controllers/index.js
+39 silly gunzTarPerm extractEntry controllers/template.js
+40 silly gunzTarPerm extractEntry controllers/user.js
+41 silly gunzTarPerm extractEntry .travis.yml
+42 silly gunzTarPerm extractEntry lib/index.js
+43 silly gunzTarPerm extractEntry utils/db.js
+44 silly gunzTarPerm extractEntry utils/xls.js
+45 silly gunzTarPerm extractEntry bin/www
+46 silly gunzTarPerm extractEntry proxy/user.js
+47 silly gunzTarPerm extractEntry public/css/bootstrap.min.css
+48 silly gunzTarPerm extractEntry public/css/main.css
+49 silly gunzTarPerm extractEntry public/css/style.css
+50 silly gunzTarPerm extractEntry public/img/ad-banner.png
+51 silly gunzTarPerm extractEntry public/img/ad-banner.v25.jpg
+52 silly gunzTarPerm extractEntry public/img/booting.png
+53 silly gunzTarPerm extractEntry public/img/bottom.png
+54 silly gunzTarPerm extractEntry public/img/gift-iphone.v25.jpg
+55 silly gunzTarPerm extractEntry public/img/step-1s.v24.jpg
+56 silly gunzTarPerm extractEntry public/img/step-2s.v24.jpg
+57 silly gunzTarPerm extractEntry public/javascripts/angular.min.js
+58 silly gunzTarPerm extractEntry public/javascripts/sea.js
+59 silly gunzTarPerm extractEntry public/javascripts/util.js
+60 silly gunzTarPerm extractEntry public/javascripts/webuploader.custom.js
+61 silly gunzTarPerm extractEntry public/javascripts/webuploader.custom.min.js
+62 silly gunzTarPerm extractEntry public/javascripts/main.js
+63 silly gunzTarPerm extractEntry public/javascripts/webuploader.flashonly.min.js
+64 silly gunzTarPerm extractEntry public/javascripts/webuploader.html5only.js
+65 silly gunzTarPerm extractEntry public/javascripts/webuploader.html5only.min.js
+66 silly gunzTarPerm extractEntry public/javascripts/webuploader.js
+67 silly gunzTarPerm extractEntry public/javascripts/webuploader.min.js
+68 silly gunzTarPerm extractEntry public/javascripts/jquery.min.js
+69 silly gunzTarPerm extractEntry public/javascripts/webuploader.withoutimage.js
+70 silly gunzTarPerm extractEntry public/javascripts/application.js
+71 silly gunzTarPerm extractEntry public/javascripts/webuploader.withoutimage.min.js
+72 silly gunzTarPerm extractEntry public/javascripts/webuploader.flashonly.js
+73 silly gunzTarPerm extractEntry public/js/bootstrap.min.js
+74 silly gunzTarPerm extractEntry public/js/ga.js
+75 silly gunzTarPerm extractEntry public/js/jquery.js
+76 silly gunzTarPerm extractEntry public/stylesheets/Uploader.swf
+77 silly gunzTarPerm extractEntry public/stylesheets/style.css
+78 silly gunzTarPerm extractEntry public/stylesheets/style.styl
+79 silly gunzTarPerm extractEntry public/stylesheets/webuploader.css
+80 silly gunzTarPerm extractEntry routes/index.js
+81 silly gunzTarPerm extractEntry routes/template.js
+82 silly gunzTarPerm extractEntry routes/users.js
+83 silly gunzTarPerm extractEntry uploads/232fd245d3abcdfd42833497e3db2681.html
+84 silly gunzTarPerm extractEntry uploads/7bf43cec335d9425acbed9818f2d1dfa.jpg
+85 silly gunzTarPerm extractEntry uploads/93b0a22db0063a54298af6e0b0de9d37.txt
+86 silly gunzTarPerm extractEntry uploads/b838dc71f587a1543d3201d50fac8004.txt
+87 silly gunzTarPerm extractEntry uploads/c45fc64aed89fa14ebfd015887fc6ec0.1
+88 silly gunzTarPerm extractEntry uploads/fafb052e0ddcce24c37d97aec6bd750a.html
+89 silly gunzTarPerm extractEntry views/application.js
+90 silly gunzTarPerm extractEntry views/index.jade
+91 silly gunzTarPerm extractEntry views/drag.html
+92 silly gunzTarPerm extractEntry views/error.jade
+93 silly gunzTarPerm extractEntry views/index.html
+94 silly gunzTarPerm extractEntry views/angular.html
+95 silly gunzTarPerm extractEntry views/layout.jade
+96 silly gunzTarPerm extractEntry views/seajs.html
+97 silly gunzTarPerm extractEntry views/simple_form.jade
+98 silly gunzTarPerm extractEntry views/template.html
+99 silly gunzTarPerm extractEntry views/webuploader.html
+100 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+101 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+102 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+103 silly lockFile 1d498d27-19161-0-8032548436895013-tmp-tgz tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/tmp.tgz
+104 verbose tar pack [ '/Users/elr-mbp/.npm/elr/0.0.2/package.tgz',
+104 verbose tar pack   '/var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package' ]
+105 verbose tarball /Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+106 verbose folder /var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+107 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+108 verbose lock tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package /Users/elr-mbp/.npm/a9280eaa-19161-0-8032548436895013-package.lock
+109 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+110 verbose lock tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz /Users/elr-mbp/.npm/46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz.lock
+111 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+112 silly lockFile a9280eaa-19161-0-8032548436895013-package tar:///var/folders/p4/q_gb8hr55j78jnp769dq3sdh0000gn/T/npm-55901-RxDsKkKX/1402843019161-0.8032548436895013/package
+113 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+114 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+115 silly lockFile c8920121-rs-elr-mbp-npm-elr-0-0-2-package /Users/elr-mbp/.npm/elr/0.0.2/package
+116 verbose lock /Users/elr-mbp/.npm/elr/0.0.2/package /Users/elr-mbp/.npm/c8920121-rs-elr-mbp-npm-elr-0-0-2-package.lock
+117 silly lockFile c8920121-rs-elr-mbp-npm-elr-0-0-2-package /Users/elr-mbp/.npm/elr/0.0.2/package
+118 silly lockFile c8920121-rs-elr-mbp-npm-elr-0-0-2-package /Users/elr-mbp/.npm/elr/0.0.2/package
+119 verbose tar unpack /Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+120 silly lockFile 2a329d59-rs-elr-mbp-npm-elr-0-0-2-package tar:///Users/elr-mbp/.npm/elr/0.0.2/package
+121 verbose lock tar:///Users/elr-mbp/.npm/elr/0.0.2/package /Users/elr-mbp/.npm/2a329d59-rs-elr-mbp-npm-elr-0-0-2-package.lock
+122 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+123 verbose lock tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz /Users/elr-mbp/.npm/46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz.lock
+124 silly gunzTarPerm modes [ '755', '644' ]
+125 silly gunzTarPerm extractEntry package.json
+126 silly gunzTarPerm extractEntry .npmignore
+127 silly gunzTarPerm extractEntry README.md
+128 silly gunzTarPerm extractEntry Gruntfile.js
+129 silly gunzTarPerm extractEntry app.js
+130 silly gunzTarPerm extractEntry config.js
+131 silly gunzTarPerm extractEntry gulpfile.js
+132 silly gunzTarPerm extractEntry bower.json
+133 silly gunzTarPerm extractEntry __tests__/simple.js
+134 silly gunzTarPerm extractEntry .travis.yml
+135 silly gunzTarPerm extractEntry views/application.js
+136 silly gunzTarPerm extractEntry views/index.jade
+137 silly gunzTarPerm extractEntry views/drag.html
+138 silly gunzTarPerm extractEntry views/error.jade
+139 silly gunzTarPerm extractEntry views/index.html
+140 silly gunzTarPerm extractEntry views/angular.html
+141 silly gunzTarPerm extractEntry views/layout.jade
+142 silly gunzTarPerm extractEntry views/seajs.html
+143 silly gunzTarPerm extractEntry views/simple_form.jade
+144 silly gunzTarPerm extractEntry views/template.html
+145 silly gunzTarPerm extractEntry views/webuploader.html
+146 silly gunzTarPerm extractEntry lib/index.js
+147 silly gunzTarPerm extractEntry bin/www
+148 silly gunzTarPerm extractEntry proxy/user.js
+149 silly gunzTarPerm extractEntry public/css/bootstrap.min.css
+150 silly gunzTarPerm extractEntry public/css/main.css
+151 silly gunzTarPerm extractEntry public/css/style.css
+152 silly gunzTarPerm extractEntry public/img/ad-banner.png
+153 silly gunzTarPerm extractEntry public/img/ad-banner.v25.jpg
+154 silly gunzTarPerm extractEntry public/img/booting.png
+155 silly gunzTarPerm extractEntry public/img/bottom.png
+156 silly gunzTarPerm extractEntry public/img/gift-iphone.v25.jpg
+157 silly gunzTarPerm extractEntry public/img/step-1s.v24.jpg
+158 silly gunzTarPerm extractEntry public/img/step-2s.v24.jpg
+159 silly gunzTarPerm extractEntry public/javascripts/angular.min.js
+160 silly gunzTarPerm extractEntry public/javascripts/sea.js
+161 silly gunzTarPerm extractEntry public/javascripts/util.js
+162 silly gunzTarPerm extractEntry public/javascripts/webuploader.custom.js
+163 silly gunzTarPerm extractEntry public/javascripts/webuploader.custom.min.js
+164 silly gunzTarPerm extractEntry public/javascripts/main.js
+165 silly gunzTarPerm extractEntry public/javascripts/webuploader.flashonly.min.js
+166 silly gunzTarPerm extractEntry public/javascripts/webuploader.html5only.js
+167 silly gunzTarPerm extractEntry public/javascripts/webuploader.html5only.min.js
+168 silly gunzTarPerm extractEntry public/javascripts/webuploader.js
+169 silly gunzTarPerm extractEntry public/javascripts/webuploader.min.js
+170 silly gunzTarPerm extractEntry public/javascripts/jquery.min.js
+171 silly gunzTarPerm extractEntry public/javascripts/webuploader.withoutimage.js
+172 silly gunzTarPerm extractEntry public/javascripts/application.js
+173 silly gunzTarPerm extractEntry public/javascripts/webuploader.withoutimage.min.js
+174 silly gunzTarPerm extractEntry public/javascripts/webuploader.flashonly.js
+175 silly gunzTarPerm extractEntry public/js/bootstrap.min.js
+176 silly gunzTarPerm extractEntry public/js/ga.js
+177 silly gunzTarPerm extractEntry public/js/jquery.js
+178 silly gunzTarPerm extractEntry public/stylesheets/Uploader.swf
+179 silly gunzTarPerm extractEntry public/stylesheets/style.css
+180 silly gunzTarPerm extractEntry public/stylesheets/style.styl
+181 silly gunzTarPerm extractEntry public/stylesheets/webuploader.css
+182 silly gunzTarPerm extractEntry routes/index.js
+183 silly gunzTarPerm extractEntry routes/template.js
+184 silly gunzTarPerm extractEntry routes/users.js
+185 silly gunzTarPerm extractEntry uploads/232fd245d3abcdfd42833497e3db2681.html
+186 silly gunzTarPerm extractEntry uploads/7bf43cec335d9425acbed9818f2d1dfa.jpg
+187 silly gunzTarPerm extractEntry uploads/93b0a22db0063a54298af6e0b0de9d37.txt
+188 silly gunzTarPerm extractEntry uploads/b838dc71f587a1543d3201d50fac8004.txt
+189 silly gunzTarPerm extractEntry uploads/c45fc64aed89fa14ebfd015887fc6ec0.1
+190 silly gunzTarPerm extractEntry uploads/fafb052e0ddcce24c37d97aec6bd750a.html
+191 silly gunzTarPerm extractEntry utils/db.js
+192 silly gunzTarPerm extractEntry utils/xls.js
+193 silly gunzTarPerm extractEntry controllers/index.js
+194 silly gunzTarPerm extractEntry controllers/template.js
+195 silly gunzTarPerm extractEntry controllers/user.js
+196 silly lockFile 2a329d59-rs-elr-mbp-npm-elr-0-0-2-package tar:///Users/elr-mbp/.npm/elr/0.0.2/package
+197 silly lockFile 2a329d59-rs-elr-mbp-npm-elr-0-0-2-package tar:///Users/elr-mbp/.npm/elr/0.0.2/package
+198 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+199 silly lockFile 46cb0f95-lr-mbp-npm-elr-0-0-2-package-tgz tar:///Users/elr-mbp/.npm/elr/0.0.2/package.tgz
+200 verbose chmod /Users/elr-mbp/.npm/elr/0.0.2/package.tgz 644
+201 verbose chown /Users/elr-mbp/.npm/elr/0.0.2/package.tgz [ 501, 20 ]
+202 silly lockFile 3a52ce78- .
+203 silly lockFile 3a52ce78- .
+204 silly publish { name: 'elr',
+204 silly publish   version: '0.0.2',
+204 silly publish   private: false,
+204 silly publish   description: 'init the tool',
+204 silly publish   main: 'index.js',
+204 silly publish   repository: { type: 'git', url: 'https://github.com/elrrrrrrr/air' },
+204 silly publish   author: { name: 'elrrrrrrr' },
+204 silly publish   license: 'MIT',
+204 silly publish   scripts: { start: 'hotnode ./bin/www', test: 'echo ok & exit 1' },
+204 silly publish   dependencies:
+204 silly publish    { 'body-parser': '~1.0.0',
+204 silly publish      'cookie-parser': '~1.0.1',
+204 silly publish      debug: '~0.7.4',
+204 silly publish      express: '~4.0.0',
+204 silly publish      jade: '~1.3.0',
+204 silly publish      mongodb: '1.4.0',
+204 silly publish      morgan: '~1.0.0',
+204 silly publish      multer: '0.0.5',
+204 silly publish      'static-favicon': '~1.0.0',
+204 silly publish      stylus: '0.42.3',
+204 silly publish      'tar.gz': '*',
+204 silly publish      jsftp: '*',
+204 silly publish      'fs-extra': '*',
+204 silly publish      connect: '>=2.5.0' },
+204 silly publish   devDependencies:
+204 silly publish    { grunt: '^0.4.4',
+204 silly publish      gulp: '*',
+204 silly publish      'gulp-gm': '0.0.3',
+204 silly publish      'gulp-xls2json': '0.1.2',
+204 silly publish      hotnode: '0.0.8',
+204 silly publish      'jest-cli': '^0.1.15' },
+204 silly publish   readme: 'A - I - R\n=========\n[![Build Status](https://travis-ci.org/elrrrrrrr/air.svg?branch=master)](https://travis-ci.org/elrrrrrrr/air)\n\n\tThis is a simple platform using mongodb , express , node.js . \n\t\n\t这是一个非常简洁的开发平台，主要用于进行推广活动开发。\n\n组件 component\n---------\n\t*中奖名单 prize-list\n\t*九宫格 \tgrid\n\t老虎机\n\t*图片轮播 carousel\n\n构建 \n----\n\tgulp.js 批量压缩图片\n\ttemplate 信息录入\n\n部署\n----\n\tftp 自动上线\n\n\n\t\n',
+204 silly publish   readmeFilename: 'README.md',
+204 silly publish   bugs: { url: 'https://github.com/elrrrrrrr/air/issues' },
+204 silly publish   homepage: 'https://github.com/elrrrrrrr/air',
+204 silly publish   _id: 'elr@0.0.2',
+204 silly publish   dist: { shasum: '991bb466a219b3ad16367ef1c63e37938eb03fa9' },
+204 silly publish   _from: '.' }
+205 verbose url raw elr
+206 verbose url resolving [ 'https://registry.npmjs.org/', './elr' ]
+207 verbose url resolved https://registry.npmjs.org/elr
+208 info trying registry request attempt 1 at 22:37:00
+209 http PUT https://registry.npmjs.org/elr
+210 http 403 https://registry.npmjs.org/elr
+211 error publish Failed PUT 403
+212 error Error: forbidden cannot modify pre-existing version: 0.0.2
+212 error old={"name":"elr","version":"0.0.2","private":false,"description":"init the tool","main":"index.js","repository":{"type":"git","url":"https://github.com/elrrrrrrr/air"},"author":{"name":"elrrrrrrr"},"license":"MIT","scripts":{"start":"hotnode ./bin/www","test":"npm start"},"dependencies":{"body-parser":"~1.0.0","cookie-parser":"~1.0.1","debug":"~0.7.4","express":"~4.0.0","jade":"~1.3.0","mongodb":"1.4.0","morgan":"~1.0.0","multer":"0.0.5","static-favicon":"~1.0.0","stylus":"0.42.3","tar.gz":"*","jsftp":"*","fs-extra":"*"},"devDependencies":{"grunt":"^0.4.4","gulp":"*","gulp-gm":"0.0.3","gulp-xls2json":"0.1.2"},"bugs":{"url":"https://github.com/elrrrrrrr/air/issues"},"homepage":"https://github.com/elrrrrrrr/air","_id":"elr@0.0.2","dist":{"shasum":"b35432b64b76cd7d44acd16abf3c56e778144621","tarball":"http://registry.npmjs.org/elr/-/elr-0.0.2.tgz"},"_from":".","_npmVersion":"1.4.6","_npmUser":{"name":"elrrrrrrr","email":"elrrrrrrr@gmail.com"},"maintainers":[{"name":"elrrrrrrr","email":"elrrrrrrr@gmail.com"}]}
+212 error new={"name":"elr","version":"0.0.2","private":false,"description":"init the tool","main":"index.js","repository":{"type":"git","url":"https://github.com/elrrrrrrr/air"},"author":{"name":"elrrrrrrr"},"license":"MIT","scripts":{"start":"hotnode ./bin/www","test":"echo ok & exit 1"},"dependencies":{"body-parser":"~1.0.0","cookie-parser":"~1.0.1","debug":"~0.7.4","express":"~4.0.0","jade":"~1.3.0","mongodb":"1.4.0","morgan":"~1.0.0","multer":"0.0.5","static-favicon":"~1.0.0","stylus":"0.42.3","tar.gz":"*","jsftp":"*","fs-extra":"*","connect":">=2.5.0"},"devDependencies":{"grunt":"^0.4.4","gulp":"*","gulp-gm":"0.0.3","gulp-xls2json":"0.1.2","hotnode":"0.0.8","jest-cli":"^0.1.15"},"readme":"A - I - R\u000a=========\u000a[![Build Status](https://travis-ci.org/elrrrrrrr/air.svg?branch=master)](https://travis-ci.org/elrrrrrrr/air)\u000a\u000a\u0009This is a simple platform using mongodb , express , node.js . \u000a\u0009\u000a\u0009这是一个非常简洁的开发平台，主要用于进行推广活动开发。\u000a\u000a组件 component\u000a---------\u000a\u0009*中奖名单 prize-list\u000a\u0009*九宫格 \u0009grid\u000a\u0009老虎机\u000a\u0009*图片轮播 carousel\u000a\u000a构建 \u000a----\u000a\u0009gulp.js 批量压缩图片\u000a\u0009template 信息录入\u000a\u000a部署\u000a----\u000a\u0009ftp 自动上线\u000a\u000a\u000a\u0009\u000a","readmeFilename":"README.md","bugs":{"url":"https://github.com/elrrrrrrr/air/issues"},"homepage":"https://github.com/elrrrrrrr/air","_id":"elr@0.0.2","dist":{"shasum":"991bb466a219b3ad16367ef1c63e37938eb03fa9","tarball":"http://registry.npmjs.org/elr/-/elr-0.0.2.tgz"},"_from":".","_npmVersion":"1.4.6","_npmUser":{"name":"elrrrrrrr","email":"elrrrrrrr@gmail.com"},"maintainers":[{"name":"elrrrrrrr","email":"elrrrrrrr@gmail.com"}]}: elr
+212 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:254:14)
+212 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:192:65)
+212 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+212 error     at Request.EventEmitter.emit (events.js:98:17)
+212 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+212 error     at Request.EventEmitter.emit (events.js:117:20)
+212 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+212 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+212 error     at _stream_readable.js:920:16
+212 error     at process._tickCallback (node.js:415:13)
+213 error If you need help, you may report this *entire* log,
+213 error including the npm and node versions, at:
+213 error     <http://github.com/npm/npm/issues>
+214 error System Darwin 13.1.0
+215 error command "node" "/usr/local/bin/npm" "publish"
+216 error cwd /Users/elr-mbp/code/play/air
+217 error node -v v0.10.26
+218 error npm -v 1.4.6
+219 verbose exit [ 1, true ]
