@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": false,
   "description": "init the tool",
-  "main": "index.js",
+  "bin": "index.js",
   "repository": "https://github.com/elrrrrrrr/air",
   "author": "elrrrrrrr",
   "license": "MIT",
