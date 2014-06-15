@@ -24,7 +24,8 @@
     "stylus": "0.42.3",
     "tar.gz": "*",
     "jsftp": "*",
-    "fs-extra": "*"
+    "fs-extra": "*",
+    "connect": ">=2.5.0"
   },
   "devDependencies": {
     "grunt": "^0.4.4",
