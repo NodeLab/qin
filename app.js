@@ -4,7 +4,6 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 var multer = require('multer');
@@ -22,7 +21,7 @@ app.use(multer({dest:'./uploads/'}));
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
+// app.use(express.static(path.join('/Users/elr-mbp/code/dianping/dp_event/case/')));
 // app.use(express.static(path.join('/Users/elr-mbp/code/dianping/dp_event/case/')))
 
 app.use('/', index);
@@ -40,10 +39,7 @@ app.use(function(err, req, res, next){
   res.send(500, 'Something broke!');
 });
 
-/// error handlers
 
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
@@ -65,4 +61,13 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+
+
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+});
+
+exports = module.exports = app;
