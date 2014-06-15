@@ -1,9 +1,15 @@
+
 {
-  "name": "application-name",
+  "name": "air",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "description":"init the tool",
+  "main":"index.js",
+  "repository":"https://github.com/elrrrrrrr/air",
+  "author":"elrrrrrrr",
+  "license":"MIT",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "hotnode ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
