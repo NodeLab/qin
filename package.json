@@ -1,15 +1,15 @@
 {
   "name": "elr",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "private": false,
   "description": "init the tool",
-  "bin": "index.js",
+  "bin": "lib/index.js",
   "repository": "https://github.com/elrrrrrrr/air",
   "author": "elrrrrrrr",
   "license": "MIT",
   "scripts": {
     "start": "hotnode ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
