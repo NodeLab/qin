@@ -21,16 +21,8 @@ A - I - R
 	elr init     生成配置文件
 	elr scafford 项目原型搭建
 
-<<<<<<< HEAD
-组件 
-=======
-线上环境模拟
------------
-	模拟线上ajax接口 
-
 
 组件 component
->>>>>>> a9e6eda4b64c38b38ab0a495bbd2690c3e89a396
 ---------
 	手机端qinjs (jquery free)
 	*中奖名单 prize-list
@@ -46,12 +38,9 @@ A - I - R
 	发送短信
 构建 
 ----
-<<<<<<< HEAD
-	gulp     批量压缩图片
-=======
-	gulp.js 批量压缩图片、脚本
->>>>>>> a9e6eda4b64c38b38ab0a495bbd2690c3e89a396
-	template 信息录入
+	gulp   批量压缩图片
+	gulp   压缩合并js文件
+
 部署
 ----
 	ftp 自动上线
