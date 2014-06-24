@@ -56,6 +56,13 @@ exports.account = function(req,res) {
 	res.send(result);
 }
 
+exports.vote = function (req,res){
+	res.header("Content-Type", "application/json; charset=utf-8");
+	var result = {
+		code:200
+	}
+	res.send(result)
+}
 exports.recordList = function (req,res){
 	
 	var result = {
