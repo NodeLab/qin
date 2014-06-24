@@ -22,4 +22,6 @@ router.get('/ajax/json/account/info',controller.account)
 
 router.get('/prize/ajax/recordList',controller.recordList)
 
+router.get('/vote/ajax/ajaxVote',controller.vote)
+
 module.exports = router;
