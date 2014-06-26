@@ -40,17 +40,10 @@ var getIPAddress = function () {
 
 
 app.use(favicon());
-//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
-//app.use(multer({dest:'./uploads/'}));
 app.use(cookieParser());
-//app.use(require('stylus').middleware(path.join(__dirname, 'public')));
-//app.use(express.static(path.join(__dirname, 'case')));
-console.log(cwd)
 app.use(express.static(path.join(cwd)));
-// app.use(express.static(path.join('/Users/elr-mbp/code/dianping/dp_event/case/')));
-// app.use(express.static(path.join('/Users/elr-mbp/code/dianping/dp_event/case/')))
 
 app.use('/', index);
 

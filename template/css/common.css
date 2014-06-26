@@ -1,0 +1,22 @@
+/* head && foot*/
+.left{  float: left !important;}
+.right{  float: right !important;}
+.header .title { background-color: #fefefe;}
+.header .center { width: 960px; margin: 0 auto; height: 38px;}
+.header .center .logo { height: 38px; padding: 0; background: url(http://t.dianping.com/events/djtj1/images/t-logo.png) no-repeat;}
+.header .center .logo a { float: left; width: 90px;height: 38px; background: none;}
+.header .right{  line-height: 38px;}
+.header .right a{  color: #61646e; text-decoration: none;}
+.header .right a:hover{ text-decoration: underline;  color: #cc0000;}
+.header .right .sep{ color: #dedede;}
+
+/* common */
+.hide{ display: none;}
+a{ color: #000;}
+.clearfix:after,.pic-list:after,.toolbar-box:after{content:"\20";display: block;height: 0;visibility: hidden;clear: both;}
+.clearfix,.pic-list,.toolbar-box{ zoom:1; position:relative;}
+.width100{ width: 100%; position: relative;}
+.width1000{ width: 1000px; position: relative; margin: 0 auto;}
+.left{ float: left;}
+.right{ float: right;}
+body{ font: 12px/1.5 "Microsoft Yahei", Helvetica,Arial,sans-serif;}
