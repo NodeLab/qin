@@ -1,9 +1,9 @@
 {
   "name": "elr",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "private": false,
   "description": "init the tool",
-  "bin": "app.js",
+  "bin": "lib/command.js",
   "repository": "https://github.com/elrrrrrrr/air",
   "author": "elrrrrrrr",
   "license": "MIT",
