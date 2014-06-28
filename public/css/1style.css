@@ -1,0 +1,275 @@
+.floating-block{ width: 1000px; margin: 0 auto;}
+.floating-block .float-btn-list{ position: fixed; /* Fix webkit issue with position:fixed */ top: 460px; height: 574px; width: 164px; z-index: 3;}
+.floating-block .float-btn-list{ /* Fix position:fixed not work in IE6 */ _position: absolute; _top: expression( ( 320 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' ); margin-left: 1030px; zoom: 1;}
+.floating-block .float-btn-list .nail{
+	width: 164px;
+	height: 16px;
+	background: url(../images/nail.png) center center no-repeat;
+}
+.floating-block .float-btn-list .anchor-bg{
+	background: url(../images/rope.png) top center repeat-y;
+	height: 88px;
+}
+.floating-block .float-btn-list .rope-block{
+	height: 27px;
+}
+.floating-block .float-btn-list .rope-block-small{
+	height: 10px;
+}
+.floating-block .float-btn-list .anchor-bg .anchor{
+	display: block;
+	border: 6px solid #fff;
+	width: 152px;
+	height: 70px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	line-height: 70px;
+}
+.floating-block .float-btn-list .anchor-bg-small{
+	background: url(../images/float-special.png) center top no-repeat;
+	height: 77px;
+}
+.floating-block .float-btn-list .anchor-bg-small .anchor{
+	margin-left: 35px;
+	display: block;
+	width: 94px;
+	height: 77px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	line-height: 77px;
+}
+
+.banner, .banner .widh1000{
+	background: url(../images/header.jpg) top center no-repeat;
+	height: 400px;
+}
+/*广告*/
+.ad .width1000 img{
+	width: 1000px;
+	height: 140px;
+	margin: 20px auto;
+}
+/* 模块 */
+.block-title{
+	height: 82px;
+}
+.block-title p{
+	padding: 12px 0 0 30px;
+	font-size: 24px;
+	color: #fff;
+	line-height: 70px;
+	background: url(../images/water-drop.png) 5px 40px no-repeat;
+}
+.deals li{
+	padding: 25px 10px;
+}
+.deals .deal-img{
+	width: 525px;
+	height: 300px;
+	border: 5px solid #fff;
+	float: left;
+	position: relative;
+}
+.deal-text{
+	float: left;
+	width: 425px;
+	padding-left: 20px;
+}
+.deal-text-title{
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e1d7db;
+}
+.deal-text-title-tag1{
+	float: left;
+	width: 162px;
+	height: 64px;
+	text-align: center;
+	background-color: #e6e6e6;
+	margin-right: 15px;
+	_margin-right: 7px;
+}
+.deal-text-title-tag1 .p1{
+	padding-top: 15px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #414141;
+}
+.deal-text-title-tag1 .p2{
+	color: #7f7f7f;
+}
+.deal-text-title-tag2{
+	float: left;
+	width: 236px;
+	height: 64px;
+	text-align: center;
+	display: block;
+	color: #fff;
+}
+.deal-text-title-tag2 .p1{
+	padding-top: 5px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+}
+.deal-text-title-tag2 .p2{
+	color: #fff;
+	font-size: 14px;
+	line-height: 14px;
+}
+.deal-text-title-tag2 .p2 span{
+	font-weight: bold;
+}
+.deal-text-intro{
+	padding-top: 10px;
+	border-bottom: 1px solid #e1d7db;
+}
+.deal-text-intro dt{
+	height: 24px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #353535;
+}
+.deal-text-intro dt div{
+	float: left;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+}
+.deal-text-intro dt div i{
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 24px;
+}
+.deal-text-intro dd{
+	margin-top: 10px;
+	color: #8c8c8c;
+	padding-left: 7px;
+	overflow: hidden;
+	zoom: 1;
+}
+.deal-text-intro dd span{
+	float: left;
+	width: 390px;
+	color: #8c8c8c;
+}
+.deal-text-intro dd .num{
+	width: 20px;
+	font-weight: bold;
+	color: #343434;
+}
+.deal-text-intro dl{
+	height: 220px;
+}
+.deal-text-link a{
+	display: block;
+	float: left;
+	width: 49%;
+	height: 43px;
+	line-height: 43px;
+	text-align: center;
+	font-size: 14px;
+}
+.border-left{
+	border-left: 1px solid #e1d7db;
+}
+.border-bottom{
+	border-bottom: 1px solid #e1d7db;
+}
+.rules{
+	padding: 25px 60px;
+}
+.rules dt{
+	font-weight: bold;
+	font-size: 24px;
+	color: #252525;
+}
+.rules dd{
+	font-size: 14px;
+	color: #3d3d3d;
+	line-height: 24px;
+}
+/* deal*/
+.deal_pic {
+	overflow:hidden;
+	zoom:1;
+}
+.deal_pic ul {
+	position:absolute;
+	height:300px;
+	left:0;
+	width:10000px;
+}
+.deal_pic li {
+	width: 525px;
+	height: 300px;
+	overflow:hidden;
+	text-align:center;
+	margin-right:6px;
+	zoom:1;
+	float:left;
+	display:inline;
+	position: relative;
+	padding: 0;
+}
+.deal_pic li img {
+	width: 525px;
+	height: 300px;
+}
+
+
+/* 商户图片轮播*/
+.thumb-prev {
+	left:10px;
+}
+.thumb-prev,.thumb-next {
+	width:30px;
+	height:30px;
+	position:absolute;
+	top:135px;
+	background-color:rgba(0,0,0,0.5);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#7F000000,endColorstr=#7F000000);
+	_background-color:#2a2a2a;
+}
+.thumb-next {
+	/*right:0px;*/
+	left:485px;
+}
+.thumb-prev a.arrows,.thumb-next a.arrows {
+	background:url(../images/arrow.png) no-repeat;
+}
+.thumb-prev a.arrows,.thumb-next a.arrows {
+	display:block;
+	width:30px;
+	height:30px;
+	background-position:10px 6px;
+}
+.thumb-next a.arrows {
+	background-position:-38px 6px;
+}
+.thumb-prev a:hover,.thumb-next a:hover {
+	background-color:rgba(0,0,0,0.6);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#99000000,endColorstr=#99000000);
+	*background-color:#000;
+}
+:root .thumb-prev {
+	filter:none;/*处理IE9浏览器中的滤镜效果*/
+	background-color:rgba(0,0,0,0.5);
+}
+:root .thumb-prev a:hover: {
+	filter:none;/*处理IE9浏览器中的滤镜效果*/
+	background-color:rgba(0,0,0,0.6);
+}
+.thumb-disable a.arrows,.thumb-disable a.arrows:hover {
+	background-color:rgba(0,0,0,0.4);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#66000000,endColorstr=#66000000);
+	*background-color:#494949;
+	cursor:default;
+	opacity:0.7;
+}
+:root .thumb-disable,:root .thumb-disable a.arrows:hover {
+	filter:none;/*处理IE9浏览器中的滤镜效果*/
+	background-color:rgba(0,0,0,0.6);
+}
