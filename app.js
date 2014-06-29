@@ -44,6 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
 app.use(cookieParser());
 app.use(express.static(path.join(cwd)));
+app.use(express.static(__dirname+'/public'));
 
 app.use('/', index);
 
