@@ -14,14 +14,13 @@ A - I - R
 
 使用
 ----
-	进入开发项目目录下
-	elr  开启服务 默认使用3000端口
-	elr build    构建图片 
-	elr deploy   部署
-	elr init     生成配置文件
-	elr scafford 项目原型搭建
-
-
+	elr  开启服务 默认随机选取端口
+	elr -p --port 指定选取端口
+	elr -s --scafford [name] 项目原型搭建
+	*elr build    构建图片 
+	*elr deploy   部署
+	*elr init     生成配置文件
+	
 组件 component
 ---------
 	手机端qinjs (jquery free)
@@ -29,13 +28,15 @@ A - I - R
 	*九宫格 	grid
 	*老虎机
 	*图片轮播 carousel
-	页面弹窗
+	*页面弹窗
 
-接口模拟
+接口模拟 
 -------
+	可通过根目录下config.json扩展接口
 	抽奖
 	登录
 	发送短信
+	投票
 构建 
 ----
 	gulp   批量压缩图片
@@ -44,6 +45,5 @@ A - I - R
 部署
 ----
 	ftp 自动上线
-
 
 	
