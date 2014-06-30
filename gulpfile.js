@@ -17,11 +17,11 @@ gulp.task('resize',function() {
 })
 
 gulp.task('logo',function(){
-	gulp.src("/Users/elr-mbp/Desktop/grid/*.{jpg,jpeg,JPG,png}")
+	gulp.src("/Users/elr-mbp/Downloads/at/*.{jpg,jpeg,JPG,png}")
 		.pipe(gm(function(gmfile){
-			return gmfile.resize(180,180,"!").setFormat('jpg');
+			return gmfile.resize(207,128,"!").setFormat('jpg');
 		}))
-		.pipe(gulp.dest('/Users/elr-mbp/Desktop/grid-p/'))
+		.pipe(gulp.dest('/Users/elr-mbp/Downloads/at/'))
 	return 
 })
 
