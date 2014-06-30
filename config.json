@@ -1,4 +1,5 @@
-{
+{ 
+  "prizeSwitch":"1",
   "ajaxList": {
     "test": "Hello World",
     "/prize/ajax/prizeDraw": {
