@@ -1,18 +1,29 @@
 var gulp = require('gulp');
 var gm = require('gulp-gm');
 var xls2json = require('gulp-xls2json');
+var config = require('./config')
+var src , width , height
 
-gulp.task('hello', function(){
+//parse the config 
+(function(config){
+	var temp = config.image.path.trim()
+	src =  temp.slice(-1) == '/' ? temp.slice(0,-1) : temp
+	width = config.image.width
+	height = config.image.height
+})(config)	
+
+gulp.task('hello', function(data){
 	console.log('Hello World')
+	console.log(data())
 })
 
 gulp.task('resize',function() {
-	gulp.src("case/sushi/1406-1/images/grid/*.jpg"
+	gulp.src(src+"*.jpg"
 		)
 		.pipe(gm(function (gmfile) {
-			return gmfile.resize(148,148,"!").setFormat('jpg');
+			return gmfile.resize(width,height,"!").setFormat('jpg');
 		}))
-		.pipe(gulp.dest('case/sushi/1406-1/images/grid/'))
+		.pipe(gulp.dest(src))
 	return	
 })
 
@@ -30,3 +41,5 @@ gulp.task('parse_xls',function(){
 		.pipe(xls2json())
 		.pipe(gulp.dest('/Users/elr-mbp/Desktop/temp/'));
 })
+
+//gulp.start("resize")
