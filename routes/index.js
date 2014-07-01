@@ -2,11 +2,9 @@ var express = require('express');
 var router = express.Router();
 var cwd = process.cwd();
 var controller = require('../controllers/index')
-var config = require('../config.json')(cwd)
+var config = require(cwd+'/config.json')
 
 /* GET home page. */
-
-console.log(cwd)
 
 router.get('/test',function(req,res){
 	res.send('xixix')
