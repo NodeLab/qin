@@ -1,6 +1,6 @@
 {
   "name": "elr",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "private": false,
   "description": "init the tool",
   "bin": "lib/command.js",
@@ -17,12 +17,13 @@
     "express": "~4.0.0",
     "static-favicon": "~1.0.0",
     "commander":"2.2.0",
-    "fs-extra":"0.9.1"
-  },
-  "devDependencies": {
+    "fs-extra":"0.9.1",
     "gulp": "*",
     "gulp-gm": "0.0.3",
     "gulp-xls2json": "0.1.2",
     "jest-cli": "^0.1.15"
+  },
+  "devDependencies": {
+    
   }
 }
