@@ -1,20 +1,20 @@
 var gulp = require('gulp');
 var gm = require('gulp-gm');
+var cwd = process.cwd();
 var xls2json = require('gulp-xls2json');
-var config = require(cwd+'/config.json')
+var config = require('./config.json')
 var src , width , height
 
 //parse the config 
 (function(config){
-	var temp = config.image.path.trim()
+	var temp = config.resize.path.trim()
 	src =  temp.slice(-1) == '/' ? temp.slice(0,-1) : temp
-	width = config.image.width
-	height = config.image.height
+	width = config.resize.width
+	height = config.resize.height
 })(config)	
 
 gulp.task('hello', function(data){
 	console.log('Hello World')
-	console.log(data())
 })
 
 gulp.task('resize',function() {
@@ -42,4 +42,6 @@ gulp.task('parse_xls',function(){
 		.pipe(gulp.dest('/Users/elr-mbp/Desktop/temp/'));
 })
 
-//gulp.start("resize")
+exports = gulp
+
+//gulp.start("hello")
