@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var gm = require('gulp-gm');
 var cwd = process.cwd();
 var xls2json = require('gulp-xls2json');
-var config = require('./config.json')
+var config = require('./utils/getConfig')
 var src , width , height
 
 //parse the config 
