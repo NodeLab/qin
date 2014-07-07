@@ -28,11 +28,11 @@ gulp.task('resize',function() {
 })
 
 gulp.task('logo',function(){
-	gulp.src("/Users/elr-mbp/Downloads/at/*.{jpg,jpeg,JPG,png}")
+	gulp.src("/Users/elr-mbp/Downloads/银塘火锅图片/*.{jpg,jpeg,JPG,png}")
 		.pipe(gm(function(gmfile){
-			return gmfile.resize(207,128,"!").setFormat('jpg');
+			return gmfile.resize(440,272,"!").setFormat('jpg');
 		}))
-		.pipe(gulp.dest('/Users/elr-mbp/Downloads/at/'))
+		.pipe(gulp.dest('/Users/elr-mbp/Downloads/银塘火锅图片/dest'))
 	return 
 })
 
