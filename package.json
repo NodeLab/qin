@@ -20,7 +20,6 @@
     "fs-extra":"0.9.1",
     "gulp": "*",
     "gulp-gm": "0.0.3",
-    "gulp-xls2json": "0.1.2",
-    "jest-cli": "^0.1.15"
+    "gulp-xls2json": "0.1.2"
   }
 }
