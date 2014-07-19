@@ -1,6 +1,6 @@
 {
   "name": "elr",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "private": false,
   "description": "init the tool",
   "bin": "lib/command.js",
