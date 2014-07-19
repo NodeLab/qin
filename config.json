@@ -4,6 +4,7 @@
     "width":180,
     "height":180
   },
+  "htmlPath":"html/",
   "deployPath":"70s/1406-1/",
   "prizeSwitch":1,
   "ajaxList": {
