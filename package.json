@@ -17,6 +17,7 @@
     "express": "~4.0.0",
     "static-favicon": "~1.0.0",
     "commander":"2.2.0",
-    "fs-extra":"0.9.1"
+    "fs-extra":"0.9.1",
+    "request":"~2.39.0"
   }
 }
