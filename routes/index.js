@@ -3,6 +3,7 @@ var router = express.Router();
 var cwd = process.cwd();
 var controller = require('../controllers/index')
 var config = require('../utils/getConfig')
+var request = require('request')
 
 /* GET home page. */
 
@@ -13,9 +14,10 @@ router.get('/intro', function(req, res) {
 	res.sendfile('public/intro.html');
 });
 router.get('*',function(req,res){
-	res.header("Content-Type", "application/json; charset=utf-8");
-	var result = config.ajaxList[req.path] || "Hello World"
-	res.send(result)
+	// res.header("Content-Type", "application/json; charset=utf-8");
+	var url = 'http://www.baidu.com/' + req.url
+  	req.pipe(request(url))
+  		.pipe(res)
 })
 
 module.exports = router;
