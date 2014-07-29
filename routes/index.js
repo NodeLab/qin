@@ -25,11 +25,11 @@ router.get('*',function(req,res){
 		return 
 	} else {
 		var url = config.apiPath + req.url
+		console.log(url)
 	  	req.pipe(request(url))
 	  		.pipe(res)
 	  	return 
 	}
 })
-
 
 module.exports = router;
