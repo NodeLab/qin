@@ -14,24 +14,25 @@ A - I - R
 
 使用
 ----
+	使用 elr p [int] 提供http服务
+	如果需要进行扩展功能可以通过 elr -i 生成扩展文件
+
+参数
+----
 	elr  开启服务 默认随机选取端口
 	elr -p --port 指定选取端口
 	elr -s --scafford [name] 项目原型搭建
-	*elr build    构建图片 
-	*elr deploy   部署
-	*elr init     生成配置文件
+	elr -i --init 生成配置文件
 	
 接口模拟 
 -------
-	可通过根目录下config.json扩展接口
-	对于线上接口，设置apiPath可实现自动转发
+	-通过config.json 自定义api list
+	-对于线上接口，设置apiPath可实现自动转发(支持RESTful)
+
 构建 
 ----
 	gulp   批量压缩图片
 	gulp   压缩合并js文件
 
-部署
-----
-	ftp 自动上线
 
 	
