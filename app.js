@@ -11,33 +11,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var app = express();
 
-var openURL = function (url) {
-  switch (process.platform) {
-    case "darwin":
-      exec('open ' + url);
-      break;
-    case "win32":
-      exec('start ' + url);
-      break;
-    default:
-      spawn('xdg-open', [url]);
-  }
-};
-
-var getIPAddress = function () {
-  var ifaces = os.networkInterfaces();
-  var ip = '';
-  for (var dev in ifaces) {
-    ifaces[dev].forEach(function (details) {
-      if (ip === '' && details.family === 'IPv4' && !details.internal) {
-        ip = details.address;
-        return;
-      }
-    });
-  }
-  return ip || "127.0.0.1";
-};
-
 
 app.use(favicon());
 app.use(bodyParser.json());
@@ -45,6 +18,9 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.use('/', index);
 
