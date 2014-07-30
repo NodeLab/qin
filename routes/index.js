@@ -20,12 +20,9 @@ router.get('/intro', function(req, res) {
 //console 
 
 router.get('/console', function(req, res) {
-	res.sendfile('public/console.html')
+	controller.console(req, res)
 })
 
-router.post('/console', function(req, res){
-
-})
 
 //enable the proxy
 router.get('*',function(req,res){
@@ -44,4 +41,9 @@ router.get('*',function(req,res){
 	}
 })
 
+router.post('*',function(req, res) {
+	req.pipe(request(url))
+		.pipe(res)
+	return 
+})
 module.exports = router;
