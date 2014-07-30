@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2  config.json
+  form
+    table 
+      tr
+        th key
+        th value
+        each v, k in data
+          tr
+            td=k
+            td=v
+
+        
