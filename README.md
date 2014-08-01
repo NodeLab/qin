@@ -6,33 +6,29 @@ A - I - R
 
 功能
 ---------
-	提供静态文件服务器、API代理工具、项目scafford生成器、抽奖登录相关接口模拟、项目构建部署。
+	提供静态文件服务器、API代理工具、项目scafford生成器、接口模拟\代理、项目构建部署。
 
 安装
 ----
-	npm install elr -g （推荐使用cnpm）
+	npm install qin -g （推荐使用cnpm）
 
 使用
 ----
-	使用 elr p [int] 提供http服务
-	如果需要进行扩展功能可以通过 elr -i 生成扩展文件
+	使用 qin -p [int] 提供http服务
+	如果需要进行扩展功能可以通过 qin -i 生成扩展文件
 
 参数
 ----
-	elr  开启服务 默认随机选取端口
-	elr -p --port 指定选取端口
-	elr -s --scafford [name] 项目原型搭建
-	elr -i --init 生成配置文件
+	qin  开启服务 默认随机选取端口
+	qin -p --port 指定选取端口
+	qin -s --scafford [name] 项目原型搭建
+	qin -i --init 生成配置文件
 	
 接口模拟 
 -------
 	-通过config.json 自定义api list
 	-对于线上接口，设置apiPath可实现自动转发(支持RESTful)
 
-构建 
-----
-	gulp   批量压缩图片
-	gulp   压缩合并js文件
 
 
 	
