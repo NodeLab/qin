@@ -42,6 +42,7 @@ router.get('*',function(req,res){
 })
 
 router.post('*',function(req, res) {
+	var url = config.apiPath + req.url
 	req.pipe(request.post(url))
 		.pipe(res)
 	return 
