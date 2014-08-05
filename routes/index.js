@@ -4,7 +4,6 @@ var router = express.Router();
 var cwd = process.cwd();
 
 var controller = require('../controllers/index')
-var config = require('../utils/getConfig')
 
 /* GET home page. */
 
@@ -27,6 +26,7 @@ router.get('/console', function(req, res) {
 //enable the proxy
 router.get('*',function(req,res){
 	res.header("Content-Type", "application/json; charset=utf-8");
+	var config = require('../utils/getConfig')
 	var _r = config.ajaxList[req.path]
 
 	if (_r) {
@@ -42,6 +42,7 @@ router.get('*',function(req,res){
 })
 
 router.post('*',function(req, res) {
+	var config = require('../utils/getConfig')
 	var url = config.apiPath + req.url
 	req.pipe(request.post(url))
 		.pipe(res)
