@@ -1,6 +1,6 @@
 {
   "name": "qin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "init the tool",
   "bin": "lib/command.js",
@@ -13,11 +13,14 @@
   },
   "dependencies": {
     "body-parser": "~1.0.0",
+    "commander": "2.2.0",
     "cookie-parser": "~1.0.1",
     "express": "~4.0.0",
-    "static-favicon": "~1.0.0",
-    "commander":"2.2.0",
-    "fs-extra":"0.9.1",
-    "request":"~2.39.0"
+    "fs-extra": "0.9.1",
+    "gulp-gm": "0.0.7",
+    "gulp-xls2json": "*",
+    "request": "~2.39.0",
+    "serve-index": "^1.2.0",
+    "static-favicon": "~1.0.0"
   }
 }

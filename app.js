@@ -8,14 +8,17 @@ var path = require('path');
 var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var directory = require('serve-index');
+
 var index = require('./routes/index');
 var app = express();
-
 
 app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
 app.use(cookieParser());
+
+app.use(directory(cwd));
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 
@@ -23,7 +26,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use('/', index);
-
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
