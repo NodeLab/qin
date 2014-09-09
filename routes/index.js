@@ -27,7 +27,7 @@ router.get('/console', function(req, res) {
 router.get('*',function(req,res){
 	res.header("Content-Type", "application/json; charset=utf-8");
 	var config = require('../utils/getConfig')
-	var _r = config.ajaxList[req.path]
+	var _r = config.ajaxList[req._parsedUrl.path]
 
 	if (_r) {
 		res.send(_r)
