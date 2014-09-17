@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "hotnode ./bin/www",
-    "test": "jest"
+    "test": "mocha"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -21,5 +21,8 @@
     "request": "~2.39.0",
     "serve-index": "^1.2.0",
     "static-favicon": "~1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }
