@@ -1,11 +1,11 @@
-A - I - R
+Q - I - N
 =========
-[![Build Status](https://travis-ci.org/elrrrrrrr/air.svg?branch=master)](https://travis-ci.org/elrrrrrrr/air)
+[![Build Status](https://travis-ci.org/NodeLab/qin.svg?branch=master)](https://travis-ci.org/NodeLab/qin)
 	
 	这是一个非常简洁的开发环境，主要用于进行推广活动开发。
 
 功能
----------
+----
 	提供静态文件服务器、API代理工具、项目scafford生成器、接口模拟\代理、项目构建部署。
 
 安装
@@ -21,13 +21,11 @@ A - I - R
 ----
 	qin  开启服务 默认随机选取端口
 	qin -p --port 指定选取端口
-	qin -s --scafford [name] 项目原型搭建
-	qin -i --init 生成配置文件
 	
 接口模拟 
 -------
 	-通过config.json 自定义api list
-	-对于线上接口，设置apiPath可实现自动转发(支持RESTful)
+	-对于线上接口，设置apiPath可实现自动转发
 
 
 
