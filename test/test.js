@@ -7,9 +7,20 @@ describe('Array', function(){
       assert.equal(-1, [1,2,3].indexOf(0));
     })
   })
-  describe('always true', function() {
-  	it('should be true', function(){
-  		
+  describe('auto reload', function() {
+  	it('should auto reload config.json', function(done){
+  		var fs = require('fs');
+  		var src = config = require('../utils/getConfig').config();
+  		//修改文件
+      
+  		fs.writeFile('../config.json', JSON.stringify({}))
+      config = require('../utils/getConfig').config();
+      config = {}
+      console.log('config', config)
+      fs.writeFile('../config.json', JSON.stringify({}));
+      done()
+  		//重新
+  		//判断
   	})
   })
 })
