@@ -8,5 +8,24 @@
  "htmlPath": "html/",
  "deployPath": "70s/1406-1/",
  "prizeSwitch": 1,
- "ajaxList": {}
+ "ajaxList": {
+ 	"/test":{
+ 		"code": 200,
+ 		"msg": "hello world!"
+ 	}
+ }
 }
+
+// {
+// 	"ajaxList": [{
+// 			"path":"",
+// 			"querystring":"",
+// 			"body":"",
+// 			"param":"",
+// 			"type":"post",
+// 			"result":""
+
+// 		},{
+
+// 			}]
+// }
