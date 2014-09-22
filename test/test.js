@@ -38,7 +38,7 @@ describe('Utils', function() {
 
 })
 describe('Routes', function() {
-  describe('console req', function() {
+  describe('response the request', function() {
     var sever;
     before(function() {
       sever=app.listen(3000);
@@ -46,7 +46,7 @@ describe('Routes', function() {
     after(function() {
       sever.close();
     })
-    it('should ', function(done) {
+    it('should get the request in config.json ', function(done) {
       request.get('http://localhost:3000/prize/ajax/prizeDraw?groupId=198', function(err,res, body) {
         assert(config.ajaxList[res.req.path])
         done();
