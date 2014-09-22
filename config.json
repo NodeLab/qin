@@ -12,7 +12,7 @@
         "/prize/ajax/prizeDraw?groupId=198": {
             "code": 200,
             "msg": {}
-            },
+        },
         "/test": {
             "code": 200,
             "msg": "hello world!"
