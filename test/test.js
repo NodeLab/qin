@@ -48,7 +48,10 @@ describe('Routes', function() {
     })
     it('should get the request in config.json ', function(done) {
       request.get('http://localhost:3000/prize/ajax/prizeDraw?groupId=198', function(err,res, body) {
-        assert(config.ajaxList[res.req.path])
+        var path = res.req.path;
+        var result = config.ajaxList[path];
+        var res_body = JSON.parse(body);
+        assert.deepEqual(result,res_body)
         done();
       });
     })
