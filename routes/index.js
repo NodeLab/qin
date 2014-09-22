@@ -23,10 +23,25 @@ router.get('/console', function(req, res) {
 })
 
 
+// /test/1/2  
+router.get('/test/:id/:is', function(req, res){
+	//test/1
+	req.path === "/test";
+	var id = req.param.id;
+	var is = req.param.is;
+	// test/1?code=1
+	var code = req.query.code;
+
+})
+
+router.post('/test', function(req, res) {
+	var code = req.body.code;
+})
+
 //enable the proxy
 router.get('*',function(req,res){
 	res.header("Content-Type", "application/json; charset=utf-8");
-	var config = require('../utils/getConfig')
+	var config = require('../utils/getConfig').config();
 	var _r = config.ajaxList[req._parsedUrl.path]
 
 	if (_r) {
