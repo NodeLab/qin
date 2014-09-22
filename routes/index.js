@@ -23,20 +23,7 @@ router.get('/console', function(req, res) {
 })
 
 
-// /test/1/2  
-router.get('/test/:id/:is', function(req, res){
-	//test/1
-	req.path === "/test";
-	var id = req.param.id;
-	var is = req.param.is;
-	// test/1?code=1
-	var code = req.query.code;
 
-})
-
-router.post('/test', function(req, res) {
-	var code = req.body.code;
-})
 
 //enable the proxy
 router.get('*',function(req,res){
