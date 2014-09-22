@@ -9,15 +9,13 @@
     "deployPath": "70s/1406-1/",
     "prizeSwitch": 1,
     "ajaxList": {
-<<<<<<< HEAD
         "/prize/ajax/prizeDraw?groupId=198": {
             "code": 200,
             "msg": {}
-=======
+            },
         "/test": {
             "code": 200,
             "msg": "hello world!"
->>>>>>> 7683750a61101abea495ce6a6df4584196d18992
         }
     }
 }
