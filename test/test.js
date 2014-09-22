@@ -18,12 +18,13 @@ describe('Utils', function(){
     });
 
   	it('should update reload', function(done){
-      config.t = 'true'
+      config.t = 'changed'
   		fs.writeFile('config.json', JSON.stringify(config), function(err) {
         if (err) console.log(err);
         
         var changed = require('../utils/getConfig').config();
-        assert(true, changed.t)
+
+        assert("true", changed.t)
         done()
       });
 
