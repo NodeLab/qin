@@ -20,13 +20,15 @@ describe('Utils', function() {
       fs.writeFile('config.json', JSON.stringify(src, null, "    "));
     });
 
-    it('should update reload', function(done) {
-      config.t = 'true'
-      fs.writeFile('config.json', JSON.stringify(config), function(err) {
+
+  	it('should update reload', function(done){
+      config.t = 'changed'
+  		fs.writeFile('config.json', JSON.stringify(config), function(err) {
         if (err) console.log(err);
 
         var changed = require('../utils/getConfig').config();
-        assert(true, changed.t)
+
+        assert.equal("changed", changed.t)
         done()
       });
 
@@ -54,3 +56,5 @@ describe('Routes', function() {
 
   })
 })
+
+
