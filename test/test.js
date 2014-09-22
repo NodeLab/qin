@@ -24,7 +24,7 @@ describe('Utils', function(){
         
         var changed = require('../utils/getConfig').config();
 
-        assert("true", changed.t)
+        assert.equal("changed", changed.t)
         done()
       });
 
@@ -32,3 +32,5 @@ describe('Utils', function(){
   	})
   })
 })
+
+
