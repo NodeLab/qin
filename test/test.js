@@ -17,17 +17,13 @@ describe('Utils', function() {
     after(function() {
       fs.writeFile('config.json', JSON.stringify(src, null, "    "));
     });
-
-
   	it('should update reload', function(done){
       config.t = 'changed'
   		fs.writeFile('config.json', JSON.stringify(config), function(err) {
         if (err) console.log(err);
-
         var changed = require('../utils/getConfig').config();
-
-        assert.equal("changed", changed.t)
-        done()
+        assert.equal("changed", changed.t);
+        done();
       });
 
 
@@ -46,14 +42,15 @@ describe('Routes', function() {
     })
     it('should get the request in config.json ', function(done) {
       request.get('http://localhost:3000/prize/ajax/prizeDraw?groupId=198', function(err,res, body) {
+        if (err) console.log(err)
         var path = res.req.path;
+        path = path.substring(0, path.indexOf('?'));
         var result = config.ajaxList[path];
         var res_body = JSON.parse(body);
         assert.deepEqual(result,res_body)
         done();
       });
     })
-
 
   })
 })
