@@ -24,13 +24,14 @@ router.get('/console', function(req, res) {
 
 //enable the proxy
 router.get('*',function(req,res){
+	console.log(req.path)
 	res.header("Content-Type", "application/json; charset=utf-8");
 	var config = require('../utils/getConfig').config();
 	var _r = config.ajaxList[req.path]
 
-	if (typeof _r = 'string') {
+	if (! ('result' in _r)) {
 		//simple
-		res.send(_r)	
+		res.send(_r)
 	} else if (typeof _r == 'object') {
 		//custom
 		var type = _r.type;
