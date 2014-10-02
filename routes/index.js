@@ -22,25 +22,40 @@ router.get('/console', function(req, res) {
 	controller.console(req, res)
 })
 
-
-
-
 //enable the proxy
 router.get('*',function(req,res){
 	res.header("Content-Type", "application/json; charset=utf-8");
 	var config = require('../utils/getConfig').config();
-	var _r = config.ajaxList[req._parsedUrl.path]
+	var _r = config.ajaxList[req.path]
 
-	if (_r) {
-		res.send(_r)
-		return 
-	} else {
+	if (typeof _r = 'string') {
+		//simple
+		res.send(_r)	
+	} else if (typeof _r == 'object') {
+		//custom
+		var type = _r.type;
+		var isEqual = true;
+		for (var i in _r.query) {
+			if (_r.query[i] != req.query[i] && _r.query[i] != '*') {
+				isEqual = false;
+				break;
+			}
+		}
+		if (isEqual) {
+			res.send(_r.result);
+		} else {
+			res.send(_r.reject || '参数填写错误 请重新填写');
+		}
+	} else if ('apiPath' in config){
+		//pipe
 		var url = config.apiPath + req.url
-		console.log(url)
-	  req.pipe(request(url))
-	  	.pipe(res)
-	  return 
+		console.log('转发请求至'+url)
+	  	req.pipe(request(url))
+	  		.pipe(res)
+	} else {
+		res.send({'msg': '接口未定义，请仔细检查'})
 	}
+	return 
 })
 
 router.post('*',function(req, res) {
