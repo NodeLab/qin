@@ -24,7 +24,6 @@ router.get('/console', function(req, res) {
 
 //enable the proxy
 router.get('*',function(req,res){
-	console.log(req.path)
 	res.header("Content-Type", "application/json; charset=utf-8");
 	var config = require('../utils/getConfig').config();
 	var _r = config.ajaxList[req.path]
@@ -62,10 +61,9 @@ router.get('*',function(req,res){
 
 router.post('*',function(req, res) {
 	res.header("Content-Type", "application/json; charset=utf-8");
-	var config = require('../utils/getConfig');
+	var config = require('../utils/getConfig').config();
 	var _r = config.ajaxList[req.path];
-
-	if (typeof _r == 'object' && _r.type = 'post') {
+	if (typeof _r == 'object' && _r.type == 'post') {
 		var type = _r.type;
 		var isEqual = true;
 		if (type.toLowerCase() != 'post') return

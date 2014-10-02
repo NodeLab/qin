@@ -51,7 +51,17 @@ describe('Routes', function() {
         done();
       });
     })
-
+    it('should response the post request in  config.json ', function(done) {
+      request.post('http://localhost:3000/post', function(err,res, body) {
+        if (err) console.log(err)
+        var path = res.req.path;
+        
+        var result = config.ajaxList[path].result;
+        var res_body = JSON.parse(body);
+        assert.deepEqual(result,res_body)
+        done();
+      });
+    })
   })
 })
 
