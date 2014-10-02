@@ -24,6 +24,9 @@
             },
             "result": {
                 "code": 200
+            },
+            "reject": {
+                "code": 500
             }
         },
         "/query": {
@@ -33,6 +36,9 @@
             },
             "result": {
                 "code": 200
+            },
+            "reject": {
+                "code": 500
             }
         }
     }
