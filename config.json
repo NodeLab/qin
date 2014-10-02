@@ -16,6 +16,24 @@
         "/test": {
             "code": 200,
             "msg": "hello world!"
+        },
+        "/post": {
+            "type": "post",
+            "body": {
+                "groupId": 189
+            },
+            "result": {
+                "code": 200
+            }
+        },
+        "/query": {
+            "type": "get",
+            "query": {
+                "name": "qinjs"
+            },
+            "result": {
+                "code": 200
+            }
         }
     }
 }
