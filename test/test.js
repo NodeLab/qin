@@ -4,8 +4,6 @@ var assert = require("assert"),
   request = require('request'),
   config = require('../utils/getConfig').config();
  
-
-
 describe('Utils', function() {
 
   describe('auto reload config.json', function() {
