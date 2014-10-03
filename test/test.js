@@ -2,7 +2,10 @@ var assert = require("assert"),
   fs = require('fs'),
   app = require('../app'),
   request = require('request'),
-  config = require('../utils/getConfig').config();
+  config = require('../utils/getConfig').config(),
+  querystring = require('querystring');
+
+console.log()
  
 describe('Utils', function() {
 
@@ -51,11 +54,24 @@ describe('Routes', function() {
         done();
       });
     })
+
     it('should response the post request in  config.json ', function(done) {
       request.post('http://localhost:3000/post', function(err,res, body) {
         if (err) console.log(err)
         var path = res.req.path;
-        
+        var result = config.ajaxList[path].result;
+        var res_body = JSON.parse(body);
+        assert.deepEqual(result,res_body)
+        done();
+      });
+    })
+
+    it('should response the query request in  config.json ', function(done) {
+      var path = '/query';
+      var query = config.ajaxList[path].query;
+      var url = 'http://localhost:3000'+path+'?'+querystring.stringify(query);
+      request.get(url, function(err,res, body) {
+        if (err) console.log(err)
         var result = config.ajaxList[path].result;
         var res_body = JSON.parse(body);
         assert.deepEqual(result,res_body)
