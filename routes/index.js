@@ -42,6 +42,7 @@ router.get('*',function(req,res){
 				break;
 			}
 		}
+
 		if (isEqual) {
 			res.send(_r.result);
 		} else {
