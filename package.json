@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "hotnode ./bin/www",
-    "test": "mocha"
+    "test": "mocha -R spec"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
