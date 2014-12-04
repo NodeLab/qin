@@ -2,6 +2,7 @@
   "name": "qin",
   "version": "0.0.9",
   "private": false,
+  "port": 3000,
   "description": "init the tool",
   "bin": "lib/command.js",
   "repository": "https://github.com/elrrrrrrr/air",
