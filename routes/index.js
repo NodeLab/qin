@@ -2,7 +2,9 @@ var express = require('express');
 var request = require('request')
 var router = express.Router();
 var cwd = process.cwd();
+var path = require('path');
 
+var Freemarker = require('freemarker.js');
 var controller = require('../controllers/index')
 
 /* GET home page. */
@@ -17,7 +19,6 @@ router.get('/intro', function(req, res) {
 });
 
 //console 
-
 router.get('/console', function(req, res) {
 	controller.console(req, res)
 })
@@ -58,6 +59,7 @@ router.get('*',function(req,res){
 		res.send({'msg': '接口未定义，请仔细检查'})
 	}
 	return 
+	
 })
 
 router.post('*',function(req, res) {
@@ -90,4 +92,5 @@ router.post('*',function(req, res) {
 	}
 	return 
 })
+
 module.exports = router;

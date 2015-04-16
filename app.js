@@ -3,6 +3,7 @@ var os = require('os');
 var cwd = process.cwd();
 var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
+
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -11,6 +12,7 @@ var bodyParser = require('body-parser');
 var directory = require('serve-index');
 
 var index = require('./routes/index');
+var ftl = require('./routes/ftl');
 var app = express();
 
 app.use(favicon());
@@ -18,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
 app.use(cookieParser());
 app.use(directory(cwd,{'icons':true}));
+app.use('/ftl', ftl);
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +50,7 @@ if (app.get('env') === 'development') {
 }
 
 app.use(function(err, req, res, next) {
+    console.log(req.params.name);
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
