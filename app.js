@@ -19,13 +19,13 @@ app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
 app.use(cookieParser());
-app.use(directory(cwd,{'icons':true}));
 app.use('/ftl', ftl);
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use('/', index);
+app.use(directory(cwd,{'icons':true}));
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
