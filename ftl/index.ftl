@@ -1,4 +1,4 @@
-<#-- <#include "./data.html"> -->
+<#include "./data.ftl">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +12,6 @@
 	}
 </style>
 <body>
-	<div class="demo">${epayAccountDto.accountName}</div>
+	<div class="demo">I am index</div>
 </body>
 </html>
