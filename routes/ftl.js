@@ -15,20 +15,9 @@ router.get('*.ftl',function(req,res){
 		    /** for fmpp */
 		  }
 		});
-
-		var accountInfoDto = {
-			"oldThan18":"true", 
-			"showAmount":"Y",
-			"epayAccountDto":{
-				"accountName":"qinyuwei"
-			},      
-			"bankCardNum":0  
-		};
-
+    var ftlName = req.path.replace('/', '');
 		// Sync render
-		var result = fm.renderSync('index.ftl', accountInfoDto);
-		console.log('1' + result + '2');
-		console.log(typeof result);
+		var result = fm.renderSync(ftlName, {});
 		res.send(result);
 })
 
