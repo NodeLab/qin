@@ -4,8 +4,6 @@ var assert = require("assert"),
   request = require('request'),
   config = require('../utils/getConfig').config('test'),
   querystring = require('querystring');
-
-console.log()
  
 describe('Utils', function() {
 
@@ -48,7 +46,6 @@ describe('Routes', function() {
         var path = res.req.path;
         path = path.substring(0, path.indexOf('?'));
         var result = config.ajaxList[path];
-        console.log(body);
         var res_body = JSON.parse(body);
         assert.deepEqual(result,res_body)
         done();
