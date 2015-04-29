@@ -23,14 +23,14 @@ app.use(cookieParser());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(express.static(path.join(cwd)));
+app.use(express.static(__dirname+'/public'));
 // mount router
 app.use('/', postRouter);
 app.use('/ftl', ftl);
 app.use(directory(cwd, {'icons':true}));
 app.use('/', getRouter);
-// static will define index router
-app.use(express.static(path.join(cwd)));
-app.use(express.static(__dirname+'/public'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
