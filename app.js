@@ -11,7 +11,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var directory = require('serve-index');
 
-var index = require('./routes/index');
+var getRouter = require('./routes/get');
+var postRouter = require('./routes/post');
 var ftl = require('./routes/ftl');
 var app = express();
 
@@ -19,13 +20,18 @@ app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded()); 
 app.use(cookieParser());
-app.use('/ftl', ftl);
-app.use(express.static(path.join(cwd)));
-app.use(express.static(__dirname+'/public'));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use('/', index);
-app.use(directory(cwd,{'icons':true}));
+// mount router
+app.use('/', postRouter);
+app.use('/ftl', ftl);
+app.use(directory(cwd, {'icons':true}));
+app.use('/', getRouter);
+// static will define index router
+app.use(express.static(path.join(cwd)));
+app.use(express.static(__dirname+'/public'));
+
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
