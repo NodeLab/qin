@@ -56,7 +56,7 @@ describe('Routes', function() {
     })
 
     it('should response the post request in  config.json ', function(done) {
-      request.post('http://localhost:3000/post', function(err,res, body) {
+      request.post({url:'http://localhost:3000/post', form: {groupId:'189'}}, function(err,res, body) {
         if (err) console.log(err)
         var path = res.req.path;
         var result = config.ajaxList[path].result;
