@@ -14,12 +14,14 @@ router.post('*',function(req, res) {
     if (type.toLowerCase() !== 'post') {
       return;
     } 
-		for (var i in _r.query) {
+
+		for (var i in _r.body) {
 			if (_r.body[i] != req.body[i] && _r.body[i] != '*') {
 				isEqual = false;
 				break;
 			}
 		}
+
 		if (isEqual) {
 			res.send(_r.result);
 		} else {
