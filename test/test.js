@@ -2,7 +2,7 @@ var assert = require("assert"),
   fs = require('fs'),
   app = require('../app'),
   request = require('request'),
-  config = require('../utils/getConfig').config(),
+  config = require('../utils/getConfig').config('test'),
   querystring = require('querystring');
 
 console.log()
@@ -11,7 +11,6 @@ describe('Utils', function() {
 
   describe('auto reload config.json', function() {
 
-    var config = require('../utils/getConfig').config();
     var src = {};
 
     for (var i in config) {
@@ -49,6 +48,7 @@ describe('Routes', function() {
         var path = res.req.path;
         path = path.substring(0, path.indexOf('?'));
         var result = config.ajaxList[path];
+        console.log(body);
         var res_body = JSON.parse(body);
         assert.deepEqual(result,res_body)
         done();
@@ -62,6 +62,17 @@ describe('Routes', function() {
         var result = config.ajaxList[path].result;
         var res_body = JSON.parse(body);
         assert.deepEqual(result,res_body)
+        done();
+      });
+    })
+
+    it('should reject the post request in  config.json ', function(done) {
+      request.post({url:'http://localhost:3000/post', form: {groupId:'110'}},function(err,res, body) {
+        if (err) console.log(err)
+        var path = res.req.path;
+        var reject = config.ajaxList[path].reject;
+        var res_body = JSON.parse(body);
+        assert.deepEqual(reject,res_body)
         done();
       });
     })
