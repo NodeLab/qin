@@ -24,11 +24,11 @@ app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use('/ftl', ftl);
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 // mount router
 app.use('/', postRouter);
-app.use('/ftl', ftl);
 app.use(directory(cwd, {'icons':true}));
 app.use('/', getRouter);
 
