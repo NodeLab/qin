@@ -18,13 +18,13 @@ var app = express();
 
 app.use(favicon());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded()); 
+app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use('/ftl', ftl);
+app.use('/', ftl);
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 // mount router
