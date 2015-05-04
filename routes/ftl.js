@@ -7,10 +7,8 @@ var Freemarker = require('freemarker.js');
 
 //enable the proxy
 router.get('*.ftl',function(req,res){
-	// if (req.path.split('.')[1] == 'ftl') {
-		var Freemarker = require('freemarker.js');
 		var fm = new Freemarker({
-		  viewRoot: path.join(cwd) + '/ftl',
+		  viewRoot: path.join(cwd),
 		  options: {
 		    /** for fmpp */
 		  }
@@ -19,6 +17,6 @@ router.get('*.ftl',function(req,res){
 		// Sync render
 		var result = fm.renderSync(ftlName, {});
 		res.send(result);
-})
+});
 
 module.exports = router;
