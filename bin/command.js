@@ -11,11 +11,10 @@ var app = require('../app')
 var config = require('../utils/getConfig')
 
 var version = pkg.version
-var port = pkg.port
 var htmlPath = config.htmlPath
 var openFile = ' '
 var projectName
-
+var defaultPort;
 program
   .version(version)
 //.option('-p, --port [int]', '选择服务端口')
@@ -69,7 +68,7 @@ function CreateApp(name, type) {
 }
 
 function setPort(p) {
-  port = p || 3000
+  defaultPort = p || undefined;
 }
 
 function initConfig() {
@@ -112,8 +111,16 @@ var openURL = function(url) {
   return
 };
 
-//run server
-app.set('port', port)
-var server = app.listen(app.get('port'), function() {
-  openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile)
+require('../lib/socket');
+require('../lib/watcher');
+var server     = require('../lib/server');
+var portfinder = require('portfinder');
+portfinder.getPort(function (err, port) {
+  port = defaultPort ? defaultPort : port;
+  server.listen(port, function(err) {
+    openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile);
+  });
 });
+
+
+
