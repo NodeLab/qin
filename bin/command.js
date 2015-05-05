@@ -11,7 +11,6 @@ var app = require('../app')
 var config = require('../utils/getConfig')
 
 var version = pkg.version
-var port = pkg.port
 var htmlPath = config.htmlPath
 var openFile = ' '
 var projectName
@@ -112,11 +111,14 @@ var openURL = function(url) {
   return
 };
 
-app.set('port', port);
 require('../lib/socket');
 require('../lib/watcher');
-require('../lib/server').listen(app.get('port'), function() {
-  openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile);
+var server     = require('../lib/server');
+var portfinder = require('portfinder');
+portfinder.getPort(function (err, port) {
+  server.listen(port, function(err) {
+    openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile);
+  });
 });
 
 
