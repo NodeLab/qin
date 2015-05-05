@@ -14,7 +14,7 @@ var version = pkg.version
 var htmlPath = config.htmlPath
 var openFile = ' '
 var projectName
-
+var defaultPort;
 program
   .version(version)
 //.option('-p, --port [int]', '选择服务端口')
@@ -68,7 +68,7 @@ function CreateApp(name, type) {
 }
 
 function setPort(p) {
-  port = p || 3000
+  defaultPort = p || undefined;
 }
 
 function initConfig() {
@@ -116,6 +116,7 @@ require('../lib/watcher');
 var server     = require('../lib/server');
 var portfinder = require('portfinder');
 portfinder.getPort(function (err, port) {
+  port = defaultPort ? defaultPort : port;
   server.listen(port, function(err) {
     openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile);
   });
