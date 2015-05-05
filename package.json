@@ -1,6 +1,6 @@
 {
   "name": "qin",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "port": 3000,
   "description": "init the tool",
