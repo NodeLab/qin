@@ -13,8 +13,8 @@ var directory       = require('serve-index');
 
 var getRouter       = require('./routes/get');
 var postRouter      = require('./routes/post');
-var ftl             = require('./routes/ftl');
-var html            = require('./routes/html');
+var ftlRouter       = require('./routes/ftl');
+var reloadRouter    = require('./routes/reload');
 var app             = express();
 
 app.use(favicon());
@@ -26,8 +26,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 
-app.use('/', html);
-app.use('/', ftl);
+app.use('/', ftlRouter);
+app.use('/', reloadRouter);
 
 //handler static
 app.use(express.static(path.join(cwd)));
