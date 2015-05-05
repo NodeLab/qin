@@ -32,13 +32,12 @@ app.use('/', ftl);
 //handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
-
+app.use(directory(cwd, {'icons':true}));
 //after handler static
 app.use('/', postRouter);
 app.use('/', getRouter);
 
-app.use(directory(cwd, {'icons':true}));
-// mount router
+
 
 
 /// catch 404 and forwarding to error handler
