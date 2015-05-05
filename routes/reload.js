@@ -9,7 +9,6 @@ var types    = [
                 '.html',
                 '.ftl'
                ];
-// /^.*\.[html | ftl]$/
 router.get('*', function(req, res, next) {
   var file;
   if (req.url == '/') {
