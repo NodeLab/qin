@@ -112,8 +112,12 @@ var openURL = function(url) {
   return
 };
 
-//run server
-app.set('port', port)
-var server = app.listen(app.get('port'), function() {
-  openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile)
+app.set('port', port);
+require('../lib/socket');
+require('../lib/watcher');
+require('../lib/server').listen(app.get('port'), function() {
+  openFile && openURL(" http://" + getIPAddress() + ':' + port + '/' + openFile);
 });
+
+
+
