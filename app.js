@@ -32,9 +32,10 @@ app.use('/', reloadRouter);
 //handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
-app.use(directory(cwd, {'icons':true}));
-//after handler static
+
+// mount router
 app.use('/', postRouter);
+app.use(directory(cwd, {'icons':true}));
 app.use('/', getRouter);
 
 
