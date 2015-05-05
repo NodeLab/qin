@@ -1,20 +1,21 @@
 #!/usr/bin/env node
-var os = require('os');
-var cwd = process.cwd();
-var exec = require('child_process').exec;
-var spawn = require('child_process').spawn;
+var os              = require('os');
+var cwd             = process.cwd();
+var exec            = require('child_process').exec;
+var spawn           = require('child_process').spawn;
 
-var express = require('express');
-var path = require('path');
-var favicon = require('static-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var directory = require('serve-index');
+var express         = require('express');
+var path            = require('path');
+var favicon         = require('static-favicon');
+var cookieParser    = require('cookie-parser');
+var bodyParser      = require('body-parser');
+var directory       = require('serve-index');
 
-var getRouter = require('./routes/get');
-var postRouter = require('./routes/post');
-var ftl = require('./routes/ftl');
-var app = express();
+var getRouter       = require('./routes/get');
+var postRouter      = require('./routes/post');
+var ftl             = require('./routes/ftl');
+var html            = require('./routes/html');
+var app             = express();
 
 app.use(favicon());
 app.use(bodyParser.json());
@@ -24,13 +25,21 @@ app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
+app.use('/', html);
 app.use('/', ftl);
+
+//handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
-// mount router
+
+//after handler static
 app.use('/', postRouter);
-app.use(directory(cwd, {'icons':true}));
 app.use('/', getRouter);
+
+app.use(directory(cwd, {'icons':true}));
+// mount router
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
