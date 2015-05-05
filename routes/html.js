@@ -10,6 +10,8 @@ var dir      = process.argv[3];
 router.all('*', function(req, res, next) {
   if (req.url != '/' && req.url.indexOf('.html') < 0) {
     next();
+  } else if (req.url == '/' && !fs.existsSync(path.join(process.cwd(),'index.html'))){
+    next();
   } else {
     sendRenderHtml(path.join(process.cwd(), req.url == '/' ? 'index.html' : req.url), res);
   }
