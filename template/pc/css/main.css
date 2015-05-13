@@ -1,0 +1,19 @@
+body{
+	position: relative;
+	margin: 0 auto;
+
+}
+
+
+.footer-static {
+padding: 20px 0;
+min-width: 1000px;
+background-color: #ffffff;
+text-align: center;
+}
+.center{
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+	height: 100%;
+	}
