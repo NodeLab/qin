@@ -11,15 +11,15 @@ var types    = [
                ];
 router.get('*', function(req, res, next) {
   var file;
-  if (req.url == '/') {
-    var _fi = existIndex();
+  if (req.url.slice(-1) == '/') {
+    var _fi = existIndex(req.url);
     _fi ? file = _fi : next();
   } else {
     var _ft = existType(req.url);
-     _ft ? file = _ft : next();
+    _ft ? file = _ft : next();
   }
   if (file) {
-    sendRenderHtml(path.join(cwd, file), res);
+    sendRenderHtml(file, res);
   }
 
 });
@@ -39,10 +39,11 @@ function sendRenderHtml(file, res) {
   });
 }
 
-function existIndex() {
+function existIndex(url) {
   for (var i = 0, len = types.length; i < len; i ++) {
-    if (fs.existsSync(path.join(cwd, 'index' + types[i]))) {
-      return 'index' + types[i];
+    url = path.join(cwd, url,'index' + types[i]);
+    if (fs.existsSync(url)) {
+      return url;
     }
   return false;
   }
@@ -51,6 +52,7 @@ function existIndex() {
 function existType(url) {
   for (var i = 0, len = types.length; i < len; i ++ ) {
     if (url.indexOf(types[i]) > -1) {
+      url = path.join(cwd, url);
       return url;
     }
   }
