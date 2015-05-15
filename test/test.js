@@ -91,6 +91,7 @@ describe('Routes', function() {
       var encodeUrl = encodeURI(url);
       request.get(encodeUrl, function(err, res, body) {
         (err === null).should.be.true;
+        done();
       })
     })
   })
