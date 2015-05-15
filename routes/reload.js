@@ -19,6 +19,7 @@ router.get('*', function(req, res, next) {
     _ft ? file = _ft : next();
   }
   if (file) {
+    file = decodeURI(file);
     sendRenderHtml(file, res);
   }
 
