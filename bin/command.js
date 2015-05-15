@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var fs = require('fs-extra');
-var cwd = process.cwd();
-var exec = require('child_process').exec;
-var spawn = require('child_process').spawn;
-var os = require('os');
-var pkg = require('../package.json');
-var app = require('../app')
-var config = require('../utils/getConfig')
+var program   = require('commander');
+var fs        = require('fs-extra');
+var cwd       = process.cwd();
+var exec      = require('child_process').exec;
+var spawn     = require('child_process').spawn;
+var os        = require('os');
+var pkg       = require('../package.json');
+var app       = require('../app');
+var config    = require('../utils/getConfig');
 
-var version = pkg.version
-var htmlPath = config.htmlPath
-var openFile = ' '
-var projectName
+global.reload = true;
+
+var version   = pkg.version;
+var htmlPath  = config.htmlPath;
+var openFile  = ' ';
+var projectName;
 var defaultPort;
 program
-  .version(version)
+  .version(version);
 //.option('-p, --port [int]', '选择服务端口')
 
 program
@@ -25,13 +27,18 @@ program
   .option('-b, --build', '构建', still)
   .option('-i, --init', '生成配置文件', initConfig)
   .option('-d, --deploy', '部署ftp', still)
-  .option('-t, --test', '部署测试环境', still);
+  .option('-t, --test', '部署测试环境', still)
+  .option('-e, --easy', '简单模式，无自动刷新', setReload);
 program
   .command('create <name> <type>')
   .description('搭建项目原型(当前路径)')
   .action(CreateApp);
 program.parse(process.argv);
 
+
+function setReload() {
+  global.reload = false;
+}
 function setOpen(name) {
   var base = cwd + '/' + htmlPath
   var arr = fs.readdirSync(base)
