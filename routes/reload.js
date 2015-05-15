@@ -3,13 +3,16 @@ var router   = express.Router();
 var cwd      = process.cwd();
 var fs       = require('fs');
 var path     = require('path');
-
 //enable the proxy
 var types    = [
                 '.html',
                 '.ftl'
                ];
 router.get('*', function(req, res, next) {
+  if (!global.reload) {
+    next();
+    return;
+  }
   var file;
   if (req.url.slice(-1) == '/') {
     var _fi = existIndex(req.url);
