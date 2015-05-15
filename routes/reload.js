@@ -20,12 +20,15 @@ router.get('*', function(req, res, next) {
   }
   if (file) {
     file = decodeURI(file);
-    sendRenderHtml(file, res);
+    sendRenderHtml(file, res) ? '' : next();
   }
 
 });
 
 function sendRenderHtml(file, res) {
+  if (!fs.existsSync(file)) {
+    return false;
+  }
   fs.readFile(file, 'utf8', function(err, contents) {
     if (err) {
       console.error(err);
@@ -38,6 +41,7 @@ function sendRenderHtml(file, res) {
     res.type('text/html');
     res.send(contents);
   });
+  return true;
 }
 
 function existIndex(url) {
