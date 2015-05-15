@@ -4,7 +4,10 @@
         "width": 180,
         "height": 180
     },
-    "apiPath": "http://192.168.217.85",
+    "apiPath": {
+        "status": false,
+        "url": "http://192.168.217.85"
+        },
     "htmlPath": "html/",
     "deployPath": "70s/1406-1/",
     "prizeSwitch": 1,
