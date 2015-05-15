@@ -29,10 +29,7 @@ program
   .option('-d, --deploy', '部署ftp', still)
   .option('-t, --test', '部署测试环境', still)
   .option('-e, --easy', '简单模式，无自动刷新', setReload);
-program
-  .command('create <name> <type>')
-  .description('搭建项目原型(当前路径)')
-  .action(CreateApp);
+
 program.parse(process.argv);
 
 
@@ -63,15 +60,6 @@ function setOpen(name) {
   })
 
   // openFile = name || 'index.html'
-}
-
-function CreateApp(name, type) {
-  projectName = name
-  var type = type ? type : 'pc';
-  fs.copy(__dirname + '/../template/' + type, cwd + '/' + name + '/', function(err) {
-    if (err) return console.error(err);
-    console.log('创建原型成功!')
-  }); //copies directory, even if it has subdirectories or files
 }
 
 function setPort(p) {
