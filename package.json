@@ -1,6 +1,6 @@
 {
   "name": "qin",
-  "version": "0.0.10",
+  "version": "0.6.1",
   "private": false,
   "port": 3000,
   "description": "init the tool",
@@ -9,7 +9,6 @@
   "author": "elrrrrrrr",
   "license": "MIT",
   "scripts": {
-    "start": "hotnode ./bin/www",
     "test": "mocha -R spec"
   },
   "dependencies": {
