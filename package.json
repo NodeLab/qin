@@ -9,7 +9,6 @@
   "author": "elrrrrrrr",
   "license": "MIT",
   "scripts": {
-    "start": "hotnode ./bin/www",
     "test": "mocha -R spec"
   },
   "dependencies": {
