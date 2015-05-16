@@ -11,10 +11,11 @@ var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
 var directory       = require('serve-index');
 
-var getRouter       = require('./routes/get');
-var postRouter      = require('./routes/post');
+var mockRouter      = require('./routes/mock');
+var proxyRouter     = require('./routes/proxy')
 var ftlRouter       = require('./routes/ftl');
 var reloadRouter    = require('./routes/reload');
+var handlerRouter   = require('./routes/handler');
 var app             = express();
 
 app.use(favicon());
@@ -34,9 +35,11 @@ app.use(express.static(path.join(cwd)));
 app.use(express.static(__dirname+'/public'));
 
 // mount router
-app.use('/', postRouter);
+app.use('/', mockRouter);
+app.use('/', proxyRouter);
 app.use(directory(cwd, {'icons':true}));
-app.use('/', getRouter);
+app.use('/', handlerRouter);
+
 
 
 

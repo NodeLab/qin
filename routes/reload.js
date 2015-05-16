@@ -3,13 +3,16 @@ var router   = express.Router();
 var cwd      = process.cwd();
 var fs       = require('fs');
 var path     = require('path');
-
 //enable the proxy
 var types    = [
                 '.html',
                 '.ftl'
                ];
 router.get('*', function(req, res, next) {
+  if (!global.reload) {
+    next();
+    return;
+  }
   var file;
   if (req.url.slice(-1) == '/') {
     var _fi = existIndex(req.url);
@@ -19,12 +22,16 @@ router.get('*', function(req, res, next) {
     _ft ? file = _ft : next();
   }
   if (file) {
-    sendRenderHtml(file, res);
+    file = decodeURI(file);
+    sendRenderHtml(file, res) ? '' : next();
   }
 
 });
 
 function sendRenderHtml(file, res) {
+  if (!fs.existsSync(file)) {
+    return false;
+  }
   fs.readFile(file, 'utf8', function(err, contents) {
     if (err) {
       console.error(err);
@@ -37,6 +44,7 @@ function sendRenderHtml(file, res) {
     res.type('text/html');
     res.send(contents);
   });
+  return true;
 }
 
 function existIndex(url) {
