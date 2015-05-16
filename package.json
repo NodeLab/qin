@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "eslint": "eslint -c ./.eslintrc .",
-    "test": "mocha -R spec --require should"
+    "test": "npm run eslint && mocha -R spec --require should"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
