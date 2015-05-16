@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var fs = require('fs-extra');
-var cwd = process.cwd();
-var exec = require('child_process').exec;
-var spawn = require('child_process').spawn;
-var os = require('os');
-var pkg = require('../package.json');
-var app = require('../app')
-var config = require('../utils/getConfig')
+var program   = require('commander');
+var fs        = require('fs-extra');
+var cwd       = process.cwd();
+var exec      = require('child_process').exec;
+var spawn     = require('child_process').spawn;
+var os        = require('os');
+var pkg       = require('../package.json');
+var app       = require('../app');
+var config    = require('../utils/getConfig');
 
-var version = pkg.version
-var htmlPath = config.htmlPath
-var openFile = ' '
-var projectName
+global.reload = true;
+
+var version   = pkg.version;
+var htmlPath  = config.htmlPath;
+var openFile  = ' ';
+var projectName;
 var defaultPort;
 program
-  .version(version)
+  .version(version);
 //.option('-p, --port [int]', '选择服务端口')
 
 program
@@ -25,13 +27,15 @@ program
   .option('-b, --build', '构建', still)
   .option('-i, --init', '生成配置文件', initConfig)
   .option('-d, --deploy', '部署ftp', still)
-  .option('-t, --test', '部署测试环境', still);
-program
-  .command('create <name> <type>')
-  .description('搭建项目原型(当前路径)')
-  .action(CreateApp);
+  .option('-t, --test', '部署测试环境', still)
+  .option('-e, --easy', '简单模式，无自动刷新', setReload);
+
 program.parse(process.argv);
 
+
+function setReload() {
+  global.reload = false;
+}
 function setOpen(name) {
   var base = cwd + '/' + htmlPath
   var arr = fs.readdirSync(base)
@@ -56,15 +60,6 @@ function setOpen(name) {
   })
 
   // openFile = name || 'index.html'
-}
-
-function CreateApp(name, type) {
-  projectName = name
-  var type = type ? type : 'pc';
-  fs.copy(__dirname + '/../template/' + type, cwd + '/' + name + '/', function(err) {
-    if (err) return console.error(err);
-    console.log('创建原型成功!')
-  }); //copies directory, even if it has subdirectories or files
 }
 
 function setPort(p) {

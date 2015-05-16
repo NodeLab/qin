@@ -2,14 +2,13 @@
   "name": "qin",
   "version": "0.0.10",
   "private": false,
-  "port": 3000,
   "description": "init the tool",
   "bin": "bin/command.js",
   "repository": "https://github.com/elrrrrrrr/air",
   "author": "elrrrrrrr",
   "license": "MIT",
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha -R spec --require should"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -29,6 +28,7 @@
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "~2.2.5",
+    "should": "~6.0.1"
   }
 }

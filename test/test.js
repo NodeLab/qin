@@ -1,5 +1,4 @@
-var assert = require("assert"),
-  fs = require('fs'),
+var fs = require('fs'),
   app = require('../app'),
   request = require('request'),
   config = require('../utils/getConfig').config('test'),
@@ -22,7 +21,7 @@ describe('Utils', function() {
   		fs.writeFile('config.json', JSON.stringify(config), function(err) {
         if (err) console.log(err);
         var changed = require('../utils/getConfig').config();
-        assert.equal("changed", changed.t);
+        changed.t.should.be.eql('changed');
         done();
       });
 
@@ -47,7 +46,7 @@ describe('Routes', function() {
         path = path.substring(0, path.indexOf('?'));
         var result = config.ajaxList[path];
         var res_body = JSON.parse(body);
-        assert.deepEqual(result,res_body)
+        result.should.be.eql(res_body);
         done();
       });
     })
@@ -58,7 +57,7 @@ describe('Routes', function() {
         var path = res.req.path;
         var result = config.ajaxList[path].result;
         var res_body = JSON.parse(body);
-        assert.deepEqual(result,res_body)
+        result.should.be.eql(res_body);
         done();
       });
     })
@@ -69,7 +68,7 @@ describe('Routes', function() {
         var path = res.req.path;
         var reject = config.ajaxList[path].reject;
         var res_body = JSON.parse(body);
-        assert.deepEqual(reject,res_body)
+        reject.should.be.eql(res_body);
         done();
       });
     })
@@ -82,9 +81,18 @@ describe('Routes', function() {
         if (err) console.log(err)
         var result = config.ajaxList[path].result;
         var res_body = JSON.parse(body);
-        assert.deepEqual(result,res_body)
+        result.should.be.eql(res_body);
         done();
       });
+    })
+
+    it('should decodeURI path such as space', function(done) {
+      var url = 'http://localhost:3000/fixture/shoud%20decode.html';
+      var encodeUrl = encodeURI(url);
+      request.get(encodeUrl, function(err, res, body) {
+        (err === null).should.be.true;
+        done();
+      })
     })
   })
 })
