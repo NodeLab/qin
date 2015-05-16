@@ -20,7 +20,7 @@
         "/post": {
             "type": "post",
             "body": {
-                "groupId": 189
+                "groupId": "189"
             },
             "result": {
                 "code": 200

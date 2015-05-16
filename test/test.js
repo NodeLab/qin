@@ -61,7 +61,7 @@ describe('Routes', function() {
       request.post({
         url: 'http://localhost:3000/post',
         form: {
-          groupId: '189'
+          groupId: 189
         }
       }, function(err, res, body) {
         if (err) {
@@ -79,7 +79,7 @@ describe('Routes', function() {
       request.post({
         url: 'http://localhost:3000/post',
         form: {
-          groupId: '110'
+          groupId: 110
         }
       }, function(err, res, body) {
         if (err) {
