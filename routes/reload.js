@@ -1,25 +1,36 @@
-var express  = require('express');
-var router   = express.Router();
-var cwd      = process.cwd();
-var fs       = require('fs');
-var path     = require('path');
+'use strict';
+var express = require('express');
+var router = express.Router();
+var cwd = process.cwd();
+var fs = require('fs');
+var path = require('path');
 //enable the proxy
-var types    = [
-                '.html',
-                '.ftl'
-               ];
+var types = [
+  '.html',
+  '.ftl'
+];
 router.get('*', function(req, res, next) {
   var file;
-  if (req.url.slice(-1) == '/') {
-    var _fi = existIndex(req.url);
-    _fi ? file = _fi : next();
+  if (req.url.slice(-1) === '/') {
+    var fi = existIndex(req.url);
+    if (fi) {
+      file = fi;
+    } else {
+      next();
+    }
   } else {
-    var _ft = existType(req.url);
-    _ft ? file = _ft : next();
+    var ft = existType(req.url);
+    if (ft) {
+      file = ft;
+    } else {
+      next();
+    }
   }
   if (file) {
     file = decodeURI(file);
-    sendRenderHtml(file, res) ? '' : next();
+    if (!sendRenderHtml(file, res)) {
+      next();
+    }
   }
 
 });
@@ -31,7 +42,7 @@ function sendRenderHtml(file, res) {
   fs.readFile(file, 'utf8', function(err, contents) {
     if (err) {
       console.error(err);
-      process.exit(1);
+      throw Error;
     }
     if (res.fmResult) {
       contents = res.fmResult;
@@ -46,17 +57,17 @@ function sendRenderHtml(file, res) {
 }
 
 function existIndex(url) {
-  for (var i = 0, len = types.length; i < len; i ++) {
-    url = path.join(cwd, url,'index' + types[i]);
+  for (var i = 0, len = types.length; i < len; i++) {
+    url = path.join(cwd, url, 'index' + types[i]);
     if (fs.existsSync(url)) {
       return url;
     }
-  return false;
+    return false;
   }
 }
 
 function existType(url) {
-  for (var i = 0, len = types.length; i < len; i ++ ) {
+  for (var i = 0, len = types.length; i < len; i++) {
     if (url.indexOf(types[i]) > -1) {
       url = path.join(cwd, url);
       return url;
