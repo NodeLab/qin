@@ -106,8 +106,11 @@ var openURL = function(url) {
   return
 };
 
-require('../lib/socket');
-require('../lib/watcher');
+if (global.reload) {
+  require('../lib/socket');
+  require('../lib/watcher');
+}
+
 var server     = require('../lib/server');
 var portfinder = require('portfinder');
 portfinder.getPort(function (err, port) {
