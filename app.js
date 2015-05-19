@@ -28,7 +28,10 @@ app.set('view engine', 'jade');
 
 
 app.use('/', ftlRouter);
-app.use('/', reloadRouter);
+if (global.RELOAD) {
+  app.use('/', reloadRouter);
+}
+
 
 //handler static
 app.use(express.static(path.join(cwd)));
