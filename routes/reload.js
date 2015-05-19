@@ -9,10 +9,6 @@ var types    = [
                 '.ftl'
                ];
 router.get('*', function(req, res, next) {
-  if (!global.reload) {
-    next();
-    return;
-  }
   var file;
   if (req.url.slice(-1) == '/') {
     var _fi = existIndex(req.url);
