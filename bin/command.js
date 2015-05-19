@@ -9,8 +9,8 @@ var os        = require('os');
 var pkg       = require('../package.json');
 var app       = require('../app');
 var config    = require('../utils/getConfig');
+var autoReload= true;
 
-global.reload = true;
 
 var version   = pkg.version;
 var htmlPath  = config.htmlPath;
@@ -34,7 +34,7 @@ program.parse(process.argv);
 
 
 function setReload() {
-  global.reload = false;
+  autoReload = false;
 }
 function setOpen(name) {
   var base = cwd + '/' + htmlPath
@@ -106,9 +106,11 @@ var openURL = function(url) {
   return
 };
 
-require('../lib/socket');
-require('../lib/watcher');
 var server     = require('../lib/server');
+if (autoReload) {
+  require('../lib/socket');
+  require('../lib/watcher');
+}
 var portfinder = require('portfinder');
 portfinder.getPort(function (err, port) {
   port = defaultPort ? defaultPort : port;
