@@ -9,10 +9,7 @@ var types    = [
                 '.ftl'
                ];
 router.get('*', function(req, res, next) {
-  if (!global.reload) {
-    next();
-    return;
-  }
+  
   var file;
   if (req.url.slice(-1) == '/') {
     var _fi = existIndex(req.url);
@@ -23,7 +20,17 @@ router.get('*', function(req, res, next) {
   }
   if (file) {
     file = decodeURI(file);
-    sendRenderHtml(file, res) ? '' : next();
+    if(global.reload) {
+      sendRenderHtml(file, res) ? '' : next();
+    } else {
+      var content = res.fmResult;
+      if(content) {
+        res.type('text/html');
+        res.send(res.fmResult);
+      } else {
+        next();
+      }
+    }
   }
 
 });
