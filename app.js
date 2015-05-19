@@ -28,9 +28,7 @@ app.set('view engine', 'jade');
 
 
 app.use('/', ftlRouter);
-if (global.RELOAD) {
-  app.use('/', reloadRouter);
-}
+app.use('/', reloadRouter);
 
 
 //handler static
