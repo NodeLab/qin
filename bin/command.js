@@ -9,7 +9,7 @@ var os        = require('os');
 var pkg       = require('../package.json');
 var app       = require('../app');
 var config    = require('../utils/getConfig');
-var autoReload= true;
+global.RELOAD = true;
 
 
 var version   = pkg.version;
@@ -34,7 +34,7 @@ program.parse(process.argv);
 
 
 function setReload() {
-  autoReload = false;
+  global.RELOAD = false;
 }
 function setOpen(name) {
   var base = cwd + '/' + htmlPath
@@ -107,7 +107,7 @@ var openURL = function(url) {
 };
 
 var server     = require('../lib/server');
-if (autoReload) {
+if (global.RELOAD) {
   require('../lib/socket');
   require('../lib/watcher');
 }
