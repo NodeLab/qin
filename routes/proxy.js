@@ -1,9 +1,10 @@
+'use strict';
 var express = require('express');
-var router  = express.Router();
+var router = express.Router();
 var request = require('request');
 
 router.all('*', function(req, res, next) {
-  res.header("Content-Type", "application/json; charset=utf-8");
+  res.header('Content-Type', 'application/json; charset=utf-8');
   var config = require('../utils/getConfig').config();
   if (!config.apiPath) {
     next();
@@ -11,7 +12,9 @@ router.all('*', function(req, res, next) {
   }
   if (config.apiPath.status) {
     if (!config.apiPath.url) {
-      res.send({'msg': '接口未定义，请仔细检查'});
+      res.send({
+        'msg': '接口未定义，请仔细检查'
+      });
       return;
     }
     if (!req.url) {
