@@ -10,10 +10,6 @@ var types = [
   '.ftl'
 ];
 router.get('*', function(req, res, next) {
-  if (!global.reload) {
-    next();
-    return;
-  }
   var file;
   if (req.url.slice(-1) === '/') {
     var fi = existIndex(req.url);
@@ -51,7 +47,9 @@ function sendRenderHtml(file, res) {
     if (res.fmResult) {
       contents = res.fmResult;
     }
-    contents += '\n\n<!-- Inserted by Reload -->\n<script src="/socket.io/socket.io.js"></script>\n\n<script src="/reload/reload.js"></script>\n<!-- End Reload -->\n';
+    if (global.RELOAD) {
+      contents += '\n\n<!-- Inserted by Reload -->\n<script src="/socket.io/socket.io.js"></script>\n\n<script src="/reload/reload.js"></script>\n<!-- End Reload -->\n';
+    }
     res.type('text/html');
     res.send(contents);
   });

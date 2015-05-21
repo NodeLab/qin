@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+global.RELOAD = true;
 var path = require('path');
 var program = require('commander');
 var fs = require('fs-extra');
@@ -10,7 +11,6 @@ var os = require('os');
 var pkg = require('../package.json');
 var config = require('../utils/getConfig');
 
-global.reload = true;
 
 var version = pkg.version;
 var htmlPath = config.htmlPath;
@@ -32,7 +32,7 @@ program.parse(process.argv);
 
 
 function setReload() {
-  global.reload = false;
+  global.RELOAD = false;
 }
 
 function setOpen(name) {
@@ -107,9 +107,11 @@ var openURL = function(url) {
   return;
 };
 
-require('../lib/socket');
-require('../lib/watcher');
 var server = require('../lib/server');
+if (global.RELOAD) {
+  require('../lib/socket');
+  require('../lib/watcher');
+}
 var portfinder = require('portfinder');
 portfinder.getPort(function(err, port) {
   if (err) {

@@ -34,7 +34,6 @@ router.all('*', function(req, res, next) {
       break;
     }
   }
-
   if (isEqual) {
     res.send(r.result);
   } else {
