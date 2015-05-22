@@ -28,6 +28,7 @@ app.set('view engine', 'jade');
 app.use('/', ftlRouter);
 app.use('/', reloadRouter);
 
+
 //handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-
-var program   = require('commander');
-var fs        = require('fs-extra');
-var cwd       = process.cwd();
-var exec      = require('child_process').exec;
-var spawn     = require('child_process').spawn;
-var os        = require('os');
-var pkg       = require('../package.json');
-var app       = require('../app');
-var config    = require('../utils/getConfig');
-var autoReload= true;
+'use strict';
+global.RELOAD = true;
+var path = require('path');
+var program = require('commander');
+var fs = require('fs-extra');
+var cwd = process.cwd();
+var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
+var os = require('os');
+var pkg = require('../package.json');
+var config = require('../utils/getConfig');
 
 var version = pkg.version;
 var htmlPath = config.htmlPath;
@@ -31,7 +31,7 @@ program.parse(process.argv);
 
 
 function setReload() {
-  autoReload = false;
+  global.RELOAD = false;
 }
 
 function setOpen(name) {
@@ -106,8 +106,8 @@ var openURL = function(url) {
   return;
 };
 
-var server     = require('../lib/server');
-if (autoReload) {
+var server = require('../lib/server');
+if (global.RELOAD) {
   require('../lib/socket');
   require('../lib/watcher');
 }
