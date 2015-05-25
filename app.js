@@ -4,7 +4,6 @@ var cwd = process.cwd();
 
 var express = require('express');
 var path = require('path');
-var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var directory = require('serve-index');
@@ -16,7 +15,6 @@ var reloadRouter = require('./routes/reload');
 var handlerRouter = require('./routes/handler');
 var app = express();
 
-app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
