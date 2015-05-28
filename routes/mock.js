@@ -27,13 +27,14 @@ router.all('*', function(req, res, next) {
     }
     property = 'body';
   }
-
   for (var i in r[property]) {
-    if (r[property][i] !== req[property][i] && r[property][i] !== '*') {
+    if (r[property][i] != req[property][i] && r[property][i] !== '*') {
+
       isEqual = false;
       break;
     }
   }
+
   if (isEqual) {
     res.send(r.result);
   } else {
