@@ -23,8 +23,12 @@ router.all('*', function(req, res, next) {
     }
     var url = config.apiPath.url + req.url;
     console.log('已开启代理，转发请求至' + url);
-    req.pipe(request.post(url))
-      .pipe(res);
+    if (req.method.toUpperCase() === 'GET') {
+      req.pipe(request(url)).pipe(res);
+    }
+    if (req.method.toUpperCase() === 'POST') {
+      req.pipe(request.post(url, {form:req.body})).pipe(res);
+    }
   } else {
     next();
   }
