@@ -13,7 +13,6 @@ router.all('*', function(req, res, next) {
   }
   var property;
   var isEqual = true;
-
   if (req.method === 'GET') {
     if (!('result' in r)) {
       res.send(r);
