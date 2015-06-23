@@ -1,5 +1,8 @@
 {
-    "apiPath": "http://192.168.217.85",
+    "apiPath": {
+        "status": false,
+        "url": "http://192.168.217.85"
+    },
     "htmlPath": "html/",
     "ajaxList": {
         "/prize/ajax/prizeDraw": {

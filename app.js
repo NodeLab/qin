@@ -14,6 +14,7 @@ var proxyRouter = require('./routes/proxy');
 var ftlRouter = require('./routes/ftl');
 var reloadRouter = require('./routes/reload');
 var handlerRouter = require('./routes/handler');
+var config = require('./utils/getConfig').config();
 var app = express();
 
 app.use(favicon());
@@ -32,6 +33,11 @@ app.use('/', reloadRouter);
 //handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(path.join(__dirname, 'public')));
+if (config.routes) {
+    for(var i in config.routes) {
+        app.use(i, express.static(path.join(cwd, config.routes[i])));
+    }
+}
 
 // mount router
 app.use('/', mockRouter);
