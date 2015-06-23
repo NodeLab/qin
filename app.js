@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var config = fs.existsSync(path.join(cwd, '/config.json')) ?
     require(path.join(cwd, 'config.json')) :
-    require(path.join(__dirname, '../config.json'));
+    require(path.join(__dirname, '/config.json'));
 if (config.routes) {
     for(var i in config.routes) {
         app.use(i, express.static(path.join(cwd, config.routes[i])));
