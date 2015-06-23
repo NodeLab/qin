@@ -70,7 +70,7 @@ function initConfig() {
     if (err) {
       return console.error(err);
     } else {
-      console.log('qin: init config.json.')
+      console.log('qin: init config.json.');
     }
   });
   run = false;
