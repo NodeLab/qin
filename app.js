@@ -8,13 +8,12 @@ var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var directory = require('serve-index');
-
 var mockRouter = require('./routes/mock');
 var proxyRouter = require('./routes/proxy');
 var ftlRouter = require('./routes/ftl');
 var reloadRouter = require('./routes/reload');
 var handlerRouter = require('./routes/handler');
-var config = require('./utils/getConfig').config();
+var fs = require('fs');
 var app = express();
 
 app.use(favicon());
@@ -33,6 +32,10 @@ app.use('/', reloadRouter);
 //handler static
 app.use(express.static(path.join(cwd)));
 app.use(express.static(path.join(__dirname, 'public')));
+
+var config = fs.existsSync(path.join(cwd, '/config.json')) ?
+    require(path.join(cwd, 'config.json')) :
+    require(path.join(__dirname, '../config.json'));
 if (config.routes) {
     for(var i in config.routes) {
         app.use(i, express.static(path.join(cwd, config.routes[i])));

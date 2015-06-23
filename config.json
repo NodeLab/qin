@@ -3,7 +3,9 @@
         "status": false,
         "url": "http://192.168.217.85"
     },
-    "htmlPath": "html/",
+    "routes": {
+        "/": "/"
+    },
     "ajaxList": {
         "/prize/ajax/prizeDraw": {
             "code": 200,
