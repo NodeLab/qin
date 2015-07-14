@@ -1,87 +1,89 @@
 #!/usr/bin/env node
-'use strict';
-var cwd = process.cwd();
 
-var express = require('express');
+'use strict';
+
 var path = require('path');
-var favicon = require('static-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var directory = require('serve-index');
+var fs = require('fs');
+var cwd = process.cwd();
+// koa
+var koa = require('koa');
+var app = koa();
+var favicon = require('koa-favicon');
+var bodyParser = require('koa-bodyparser');
+var directory = require('koa-serve-index');
+var staticloader = require('koa-static');
+var view = require('koa-views');
+var route = require('koa-route');
+// router
 var mockRouter = require('./routes/mock');
 var proxyRouter = require('./routes/proxy');
 var ftlRouter = require('./routes/ftl');
 var reloadRouter = require('./routes/reload');
 var handlerRouter = require('./routes/handler');
-var fs = require('fs');
-var app = express();
+
 
 app.use(favicon());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(bodyParser());
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.use(view(path.join(__dirname, 'views')));
 
-
-app.use('/', ftlRouter);
-app.use('/', reloadRouter);
-
+app.use(route.get('/', ftlRouter));
+app.use(route.get('/', reloadRouter));
 
 //handler static
-app.use(express.static(path.join(cwd)));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(staticloader(path.join(cwd)));
+app.use(staticloader(path.join(__dirname, 'public')));
 
 var config = fs.existsSync(path.join(cwd, '/config.json')) ?
-    require(path.join(cwd, 'config.json')) :
-    require(path.join(__dirname, '/config.json'));
+  require(path.join(cwd, 'config.json')) :
+  require(path.join(__dirname, '/config.json'));
 if (config.routes) {
-    for(var i in config.routes) {
-        app.use(i, express.static(path.join(cwd, config.routes[i])));
-    }
+  for (var i in config.routes) {
+    app.use(i, staticloader(path.join(cwd, config.routes[i])));
+  }
 }
 
 // mount router
-app.use('/', mockRouter);
-app.use('/', proxyRouter);
+app.use(route.get('/', mockRouter));
+app.use(route.get('/', proxyRouter));
 app.use(directory(cwd, {
-    'icons': true
+  'icons': true
 }));
-app.use('/', handlerRouter);
+app.use(route.get('/', handlerRouter));
 
 
 
 /// catch 404 and forwarding to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+app.use(function*(err, ctx) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-app.use(function (err, req, res) {
-    console.error(err.stack);
-    res.send(500, 'Something broke!');
+app.use(function*(err, ctx) {
+  console.error(err.stack);
+  this.status = 500;
+  this.body('Something broke!');
 });
 
-
-if (app.get('env') === 'development') {
-    app.use(function (err, req, res) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+if (app.env === 'development') {
+  app.use(function*(err, ctx) {
+    this.status(err.status || 500);
+    yield this.render('error', {
+      message: err.message,
+      error: err
     });
+  });
 }
 
-app.use(function (err, req, res) {
-    console.log(req.params.name);
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+app.use(function*(err, ctx) {
+  this.status(err.status || 500);
+  yield this.render('error', {
+    message: err.message,
+    error: {}
+  });
 });
+
+app.listen(8080);
 
 module.exports = app;
