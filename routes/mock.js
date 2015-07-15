@@ -1,44 +1,44 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
+var koa = require('koa');
+var router = require('koa-router')();
 
-router.all('*', function(req, res, next) {
-  res.header('Content-Type', 'application/json; charset=utf-8');
-  var config = require('../utils/getConfig').config();
-  var r = config.ajaxList[req.path];
+module.exports = function*(next) {
+  router.get('*', function*(next) {
+    this.header('Content-Type', 'application/json; charset=utf-8');
+    var config = require('../utils/getConfig').config();
+    var r = config.ajaxList[req.path];
 
-  if (!r) {
-    next();
-    return;
-  }
-  var property;
-  var isEqual = true;
-  if (req.method === 'GET') {
-    if (!('result' in r)) {
-      res.send(r);
-    }
-    property = 'query';
-  }
-
-  if (req.method === 'POST') {
-    if (r.type.toLowerCase() !== 'post') {
+    if (!r) {
+      yield next;
       return;
     }
-    property = 'body';
-  }
-
-  for (var i in r[property]) {
-    if (r[property][i] !== req[property][i] && r[property][i] !== '*') {
-      isEqual = false;
-      break;
+    var property;
+    var isEqual = true;
+    if (this.method === 'GET') {
+      if (!('result' in r)) {
+        this.body(r);
+      }
+      property = 'query';
     }
-  }
-  if (isEqual) {
-    res.send(r.result);
-  } else {
-    res.send(r.reject || '参数填写错误 请重新填写');
-  }
-  return;
-});
 
-module.exports = router;
+    if (this.method === 'POST') {
+      if (r.type.toLowerCase() !== 'post') {
+        return;
+      }
+      property = 'body';
+    }
+
+    for (var i in r[property]) {
+      if (r[property][i] !== req[property][i] && r[property][i] !== '*') {
+        isEqual = false;
+        break;
+      }
+    }
+    if (isEqual) {
+      this.body(r.result);
+    } else {
+      this.body(r.reject || '参数填写错误 请重新填写');
+    }
+    return;
+  });
+};

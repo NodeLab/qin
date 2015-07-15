@@ -1,8 +1,9 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
+var koa = require('koa');
+var router = require('koa-router')();
 
-router.all('*', function(req, res) {
-	res.send('不好意思，这个，真没有\n温馨提示：若需开启代理，请配置config.json中apiPath.status');
-});
-module.exports = router;
+module.exports = function*() {
+	router.get('*', function*() {
+		this.body('不好意思，这个，真没有\n温馨提示：若需开启代理，请配置config.json中apiPath.status');
+	});
+};

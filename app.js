@@ -12,8 +12,8 @@ var favicon = require('koa-favicon');
 var bodyParser = require('koa-bodyparser');
 var directory = require('koa-serve-index');
 var staticloader = require('koa-static');
-var view = require('koa-views');
-var route = require('koa-route');
+var views = require('koa-views');
+var router = require('koa-router')();
 // router
 var mockRouter = require('./routes/mock');
 var proxyRouter = require('./routes/proxy');
@@ -21,14 +21,19 @@ var ftlRouter = require('./routes/ftl');
 var reloadRouter = require('./routes/reload');
 var handlerRouter = require('./routes/handler');
 
-
-app.use(favicon());
 app.use(bodyParser());
+app.use(favicon());
 
-app.use(view(path.join(__dirname, 'views')));
+app.use(views({
+  root: path.join(__dirname, 'views'),
+  default: 'jade'
+}))
 
-app.use(route.get('/', ftlRouter));
-app.use(route.get('/', reloadRouter));
+
+router.get('/', ftlRouter);
+router.get('/', reloadRouter);
+// app.use(router.get('/', ftlRouter));
+// app.use(router.get('/', reloadRouter));
 
 //handler static
 app.use(staticloader(path.join(cwd)));
@@ -44,23 +49,34 @@ if (config.routes) {
 }
 
 // mount router
-app.use(route.get('/', mockRouter));
-app.use(route.get('/', proxyRouter));
+router.get('/', mockRouter);
+router.get('/', proxyRouter);
+// app.use(router.get('/', mockRouter));
+// app.use(router.get('/', proxyRouter));
 app.use(directory(cwd, {
-  'icons': true
+  'icons': false
 }));
-app.use(route.get('/', handlerRouter));
+router.get('/', handlerRouter);
+// app.use(router.get('/', handlerRouter));
 
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 
 /// catch 404 and forwarding to error handler
-app.use(function*(err, ctx) {
+app.use(function*(next) {
+  console.log('404');
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  // console.log(next);
+  // next(err);
+  // yield next(err);
 });
 
 app.use(function*(err, ctx) {
+  console.log('500');
   console.error(err.stack);
   this.status = 500;
   this.body('Something broke!');
@@ -68,6 +84,7 @@ app.use(function*(err, ctx) {
 
 if (app.env === 'development') {
   app.use(function*(err, ctx) {
+    console.log('development');
     this.status(err.status || 500);
     yield this.render('error', {
       message: err.message,

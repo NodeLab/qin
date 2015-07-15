@@ -1,24 +1,26 @@
 'use strict';
-var express = require('express');
-var router = express.Router();
+var koa = require('koa');
+var router = require('koa-router')();
 var cwd = process.cwd();
 var path = require('path');
 
 var Freemarker = require('freemarker.js');
 
-//enable the proxy
-router.get('*.ftl', function(req, res, next) {
-	var fm = new Freemarker({
-		viewRoot: path.join(cwd),
-		options: {
-			/** for fmpp */
-		}
+module.exports = function*(next) {
+	console.log('freemarker');
+	//enable the proxy
+	router.get('*.ftl', function*(next) {
+		console.log('ftl');
+		var fm = new Freemarker({
+			viewRoot: path.join(cwd),
+			options: {
+				/** for fmpp */
+			}
+		});
+		var ftlName = this.path.replace('/', '');
+		// Sync render
+		var result = fm.renderSync(ftlName, {});
+		res.fmResult = result;
+		yield next;
 	});
-	var ftlName = req.path.replace('/', '');
-	// Sync render
-	var result = fm.renderSync(ftlName, {});
-	res.fmResult = result;
-	next();
-});
-
-module.exports = router;
+};
