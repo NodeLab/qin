@@ -12,7 +12,7 @@
     "test": "npm run eslint && mocha -R spec --require should"
   },
   "dependencies": {
-    "body-parser": "~1.0.0",
+    "body-parser": "~1.15.2",
     "chokidar": "^1.0.1",
     "cli-color": "^1.0.0",
     "commander": "2.2.0",
